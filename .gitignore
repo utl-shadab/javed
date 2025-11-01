@@ -1,0 +1,9 @@
+node_modules
+.next
+dist
+.vscode
+.env.local
+.env.*.local
+npm-debug.log
+*/.DS_Store
+/mnt/data/tila_frontend.zip

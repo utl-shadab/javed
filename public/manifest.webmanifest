@@ -1,0 +1,25 @@
+{
+  "name": "The Indian Legal Associates",
+  "short_name": "TILA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F8FAFD",
+  "theme_color": "#243E8C",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
