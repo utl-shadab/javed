@@ -1,45 +1,57 @@
-import Link from 'next/link'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import SEO from '@/components/SEO'
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
+"use client";
 
-const services = [
-  { id: 'corporate-law', title: 'Corporate Law', desc: 'M&A, compliance, corporate governance.' },
-  { id: 'litigation', title: 'Litigation', desc: 'Civil and criminal litigation support.' },
-  { id: 'arbitration', title: 'Arbitration', desc: 'International and domestic arbitration.' }
-]
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { SERVICES } from "@/data/services";
 
-export default function Services(){
-  const ref = useRef<HTMLDivElement|null>(null)
-  useEffect(()=>{
-    if (!ref.current) return
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReduced) return
-    const q = gsap.utils.selector(ref)
-    gsap.from(q('.card'), { y: 30, opacity: 0, stagger: 0.12, duration: 0.7, ease: 'power3.out' })
-  },[])
+export default function ServicesPage() {
   return (
-    <>
-      <SEO title="Services - TILA" />
-      <Header />
-      <main className="pt-28">
-        <section className="max-w-6xl mx-auto px-6 py-24" ref={ref}>
-          <h1 className="font-heading text-4xl mb-6">Our Services</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {services.map(s=>(
-              <Link key={s.id} href={`/services/${s.id}`} className="card p-6 bg-white rounded-lg shadow hover:shadow-lg transition">
-                 
-                  <h3 className="font-medium">{s.title}</h3>
-                  <p className="text-sm text-tila-lightText mt-2">{s.desc}</p>
-               
+    <main className="min-h-screen bg-white text-[#222B38] pt-40 pb-20">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-4xl sm:text-5xl font-extrabold text-[#0A1A63]"
+        >
+          Practice Areas
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          className="text-[#60656F] mt-4 max-w-2xl mx-auto text-base sm:text-lg"
+        >
+          We provide end-to-end legal services that are strategic, reliable, and client-focused — spanning all major areas of Indian and international law.
+        </motion.p>
+
+        {/* Services Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {SERVICES.map((service, i) => (
+            <motion.div
+              key={service.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * i, duration: 0.5 }}
+              className="group border border-neutral-200 rounded-2xl p-6 text-left shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
+            >
+              <h3 className="text-lg font-semibold text-[#0A66FF] mb-2">
+                {service.title}
+              </h3>
+              <p className="text-sm text-[#60656F] mb-4">
+                {service.excerpt?.substring(0, 120)}...
+              </p>
+              <Link
+                href={`/services/${service.slug}`}
+                className="text-[#0A66FF] font-medium text-sm hover:underline"
+              >
+                Read More →
               </Link>
-            ))}
-          </div>
-        </section>
-      </main>
-      <Footer />
-    </>
-  )
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
 }

@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 /* CSS variables */
+@font-face {
+  font-family: 'Sass';
+  src: url('/fonts/Sass.woff2') format('woff2'),
+       url('/fonts/Sass.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
 :root{
   --color-background: #F8FAFD;
   --color-surface: #FFFFFF;
@@ -10,14 +17,41 @@
   --color-secondary: #C0DBFF;
   --color-text: #333333;
   --color-light-text: #777777;
-  --color-primary: #243E8C;
+  --color-primary: #0a66ff;
 }
-
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.bg-surface {
+  background-color: var(--color-surface);
+}
+.text-text {
+  color: var(--color-text);
+}
+.text-light-text {
+  color: var(--color-light-text);
+}
+.border-outline {
+  border-color: var(--color-outline);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+} 
+/* global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html, body, #__next {
   height: 100%;
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family: 'Sass', sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* skip link */
@@ -47,4 +81,8 @@ html, body, #__next {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+.high-z {
+  z-index: 9999;
 }

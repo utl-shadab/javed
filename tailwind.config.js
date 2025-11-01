@@ -11,13 +11,10 @@ module.exports = {
           secondary: '#C0DBFF',
           text: '#333333',
           lightText: '#777777',
-          primary: '#243E8C'
+          primary: '#0a66ff'
         }
       },
-      fontFamily: {
-        heading: ['"Playfair Display"', 'serif'],
-        body: ['Inter', 'sans-serif']
-      }
+     
     }
   },
   plugins: [],

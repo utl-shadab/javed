@@ -1,104 +1,98 @@
-'use client';
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-import { useRef, useLayoutEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
-
-export default function Hero() {
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  useLayoutEffect(() => {
-    if (!ref.current) return;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReduced) return;
-
-    const ctx = gsap.context(() => {
-      // floating animation background
-      gsap.to(ref.current, {
-        y: -6,
-        duration: 6,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        opacity: 1,
-      });
-
-      // entrance animation
-      const tl = gsap.timeline({
-        defaults: { duration: 0.8, ease: 'power3.out' },
-        scrollTrigger: {
-          trigger: ref.current,
-          start: 'top 85%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-
-      tl.from('.title', { y: 40, opacity: 0 });
-      tl.from('.subtitle', { y: 30, opacity: 0 }, '-=0.4');
-      tl.from('.cta', { scale: 0.98, opacity: 0, stagger: 0.15 }, '-=0.3');
-    }, ref);
-
-    return () => ctx.revert(); // cleanup
-  }, []);
-
+const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
+  const variants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
     <section
-      ref={ref}
-      className="relative min-h-screen flex items-center overflow-hidden bg-tila-background"
       id="hero"
+      className="relative flex flex-col items-center justify-center min-h-screen bg-white overflow-hidden"
     >
-      {/* decorative background blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-tila-secondary/40 blur-[120px] rounded-full" aria-hidden="true" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-tila-primary/20 blur-[140px] rounded-full" aria-hidden="true" />
-
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* text block */}
-        <div className="will-change-transform">
-          <h1 className="title font-heading text-4xl md:text-6xl leading-tight text-tila-text">
-            Strategic, result-oriented legal solutions.
-          </h1>
-          <p className="subtitle mt-6 text-tila-lightText max-w-xl">
-            We don’t just give advice — we build it deliberately, for you.
-            Experienced litigators and corporate counsel across India.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <Link
-              href="#contact"
-              className="cta inline-block bg-tila-primary text-white px-6 py-3 rounded-lg shadow hover:scale-[1.02] transition-transform duration-300"
-            >
-              Contact Us
-            </Link>
-            <Link
-              href="#services"
-              className="cta inline-block border border-tila-outline px-6 py-3 rounded-lg text-tila-text hover:bg-tila-secondary/10 transition-colors duration-300"
-            >
-              Our Services
-            </Link>
-          </div>
-        </div>
-
-        {/* logo visual */}
-        <div className="hidden md:flex justify-center relative will-change-transform">
-          <div
-            className="absolute -left-16 -top-16 w-80 h-80 rounded-full bg-tila-secondary/60 blur-2xl"
-            aria-hidden="true"
-          ></div>
-          <div className="w-64 h-64 rounded-2xl bg-white/90 flex items-center justify-center shadow-lg">
-            <Image
-              src="/logo.png"
-              alt="TILA logo"
-              width={220}
-              height={220}
-              priority
-              className="rounded-xl"
+      {/* Background trading bars */}
+      <div className="absolute bottom-0 left-0 w-full h-40 sm:h-[200px] md:h-[260px] overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 w-full h-full flex items-end justify-between px-[2vw]">
+          {Array.from({ length: 20 }).map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-[3%] sm:w-[2.5%] rounded-t-full bg-[#0a66ff]"
+              initial={{ height: Math.random() * 60 + 20 }}
+              variants={variants}
+              animate={{
+                height: [
+                  Math.random() * 60 + 40,
+                  Math.random() * 100 + 30,
+                  Math.random() * 50 + 20,
+                ],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 1.5,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+                delay: Math.random() * 1.5,
+              }}
             />
-          </div>
+          ))}
         </div>
+
+        {/* Subtle gradient fade */}
+        <div className="absolute bottom-0 w-full h-full bg-linear-to-t from-white via-white/30 to-transparent"></div>
+      </div>
+
+      {/* Content wrapper */}
+      <div className="text-center p-3 sm:px-6 md:px-12 z-10">
+        {/* Heading */}
+        <motion.h1
+          variants={variants}
+          initial="hidden"
+          animate={startAnimation ? "visible" : "hidden"}
+          transition={{ delay: 0.3, duration: 0.9, ease: "easeOut" }}
+          className="font-extrabold text-[#222B38]  leading-[1.05] tracking-tight
+                     text-[30px] sm:text-[36px] md:text-[60px] lg:text-[80px]"
+
+        >
+          We don’t just give advice,{" "}
+          <motion.span
+            variants={variants}
+            initial="hidden"
+            animate={startAnimation ? "visible" : "hidden"}
+            transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+            className="text-[#0A66FF] inline-block"
+          >
+            We build it deliberately, for you.
+          </motion.span>
+        </motion.h1>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={startAnimation ? "visible" : "hidden"}
+          transition={{ delay: 1.3, duration: 0.8, ease: "easeOut" }}
+          className="mt-8 max-w-2xl mx-auto text-center text-[#60656F] text-sm sm:text-lg  leading-relaxed"
+        >
+          The Indian Legal Associates is a reputed multi-disciplinary boutique law firm based in Delhi & Noida, offering strategic, result-oriented, and client-focused legal solutions.
+        </motion.p>
+        <Link href="/contact">
+          <motion.button
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0px 6px 20px rgba(10, 102, 255, 0.3)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            className="mt-8 px-6 py-3 bg-tila-primary text-white rounded-full text-sm sm:text-base font-medium hover:bg-tila-primary/80 transition"
+          >
+            Get in Touch
+          </motion.button>
+        </Link>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;
