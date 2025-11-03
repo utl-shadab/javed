@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import Link from "next/link";
+import Image from "next/image";
 const NAV = [
   { label: "Home", href: "/" },
   {
@@ -109,8 +110,15 @@ export default function Header() {
         ref={menuRef}
         className="hidden md:flex fixed top-0 left-1/2 -translate-x-1/2 z-[9999] w-full   items-center justify-between py-4 md:px-20 bg-white   shadow-[0_4px_20px_rgba(0,0,0,0.05)] animate-slideDown"
       >
-        <Link href="/" className="font-semibold text-xl text-[#0A1A63]">
-          The Indian Legal Associates
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src='/tila.png'
+            alt="The Indian Legal Associates"
+            width={300}
+            height={40}
+            className="object-contain"
+          />
+         
         </Link>
 
         <nav className="flex gap-6 relative text-lg font-medium text-tila-text">
@@ -213,7 +221,15 @@ export default function Header() {
 
       {/* -------- MOBILE HEADER -------- */}
       <header className="md:hidden fixed top-0 left-1/2 -translate-x-1/2 w-full bg-white/70 backdrop-blur-xl border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between px-5 py-3 z-[99999]">
-        <div className="text-base font-semibold text-[#0A1A63]">TILA</div>
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src='/tila.png'
+            alt="The Indian Legal Associates"
+            width={200}
+            height={30}
+            className="object-contain"
+          />
+        </Link>
         <button
           onClick={() => setMobileOpen((p) => !p)}
           className="mobile-menu-toggle"
