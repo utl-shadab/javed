@@ -247,13 +247,13 @@ export default function Header() {
               <ul className="ml-3 mt-2 space-y-2 text-base animate-slideDown">
                 {item.items?.map((sub) => (
                   <li key={sub.label}>
-                    <a
+                    <Link
                       href={sub.href}
                       onClick={() => setMobileOpen(false)}
                       className="block py-1 hover:text-[#0A66FF] transition-colors"
                     >
                       {sub.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -279,13 +279,13 @@ export default function Header() {
                           .replace(/\s+/g, "-");
                         return (
                           <li key={link}>
-                            <a
+                            <Link
                               href={`/services/${slug}`}
                               onClick={() => setMobileOpen(false)}
                               className="block py-1 hover:text-[#0A66FF] transition-colors"
                             >
                               {link}
-                            </a>
+                            </Link>
                           </li>
                         );
                       })}
@@ -295,24 +295,24 @@ export default function Header() {
               </div>
             </details>
           ) : (
-            <a
+            <Link
               key={item.label}
               href={item.href || "#"}
               onClick={() => setMobileOpen(false)}
               className="text-lg font-medium hover:text-[#0A66FF] transition-colors"
             >
               {item.label}
-            </a>
+            </Link>
           )
         )}
 
-        <a
+        <Link
           href="/contact"
           onClick={() => setMobileOpen(false)}
           className="mt-8 px-6 py-3 rounded-full bg-[#0A66FF] text-white font-semibold text-center hover:bg-[#0939B5] transition-all"
         >
           Book Appointment
-        </a>
+        </Link>
       </div>
 
       {/* -------- CSS ANIMATIONS -------- */}
