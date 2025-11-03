@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -105,7 +106,10 @@ const CreatorSection: React.FC = () => {
         className="relative flex flex-col items-center justify-center lg:w-1/2 mb-10 lg:mb-0"
       >
         <div className="relative w-[280px] sm:w-[360px] rounded-2xl overflow-hidden shadow-xl">
-          <img
+          <Image
+          width={100}
+          height={100}
+          
             src="https://assets-global.website-files.com/655d5d6b07a0a257e6e7f648/6569c3919dc92602a5e98754_creator.webp"
             alt="creator"
             className="w-full h-full object-cover"
