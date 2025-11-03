@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
+import Link from "next/link";
 
 export default function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
@@ -42,14 +43,15 @@ export default function Footer() {
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 max-w-7xl mx-auto">
         {/* Left section */}
         <div className="footer-item max-w-md space-y-4">
-          <motion.h2
+          <motion.img
+            src="/tila-white.png"
+            alt="The Indian Legal Associates"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-2xl font-bold tracking-tight"
-          >
-            THE INDIAN LEGAL ASSOCIATES
-          </motion.h2>
+            className=" w-40 sm:w-48 lg:w-80 object-contain"
+          />
+
 
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -90,11 +92,31 @@ export default function Footer() {
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <li className="hover:text-white cursor-pointer transition-all">Home</li>
-          <li className="hover:text-white cursor-pointer transition-all">Platform</li>
-          <li className="hover:text-white cursor-pointer transition-all">Solutions</li>
-          <li className="hover:text-white cursor-pointer transition-all">Company</li>
-          <li className="hover:text-white cursor-pointer transition-all">Contact Us</li>
+          <li>
+            <Link href="/" className="hover:text-white cursor-pointer transition-all">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link href="/about" className="hover:text-white cursor-pointer transition-all">
+              About
+            </Link>
+          </li>
+          <li>
+            <Link href="/services" className="hover:text-white cursor-pointer transition-all">
+              Solutions
+            </Link>
+          </li>
+          <li>
+            <Link href="/insights" className="hover:text-white cursor-pointer transition-all">
+              Blog
+            </Link>
+          </li>
+          <li>
+            <Link href="/contact" className="hover:text-white cursor-pointer transition-all">
+              Contact Us
+            </Link>
+          </li>
         </motion.ul>
       </div>
 

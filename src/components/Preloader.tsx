@@ -2,8 +2,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import React, { useEffect, useState } from "react";
 
-const words = ["Join", "Us", "Together"];
-
+const words = ["Deliberate", "Legal ", "Excellence"];
 interface PreloaderProps {
   onFinish: () => void;
 }

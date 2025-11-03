@@ -124,7 +124,6 @@ export default function Header() {
         <nav className="flex gap-6 relative text-lg font-medium text-tila-text">
           {NAV.map((item) => (
             <div key={item.label} className="relative">
-              {/* 🔹 If it's a dropdown or mega menu — button opens menu */}
               {item.type ? (
                 <button
                   onClick={() => handleMenuClick(item.label)}

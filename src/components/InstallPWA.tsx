@@ -94,6 +94,7 @@
 // }
 
 import { Share2 } from "lucide-react";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export default function InstallPWA() {
@@ -139,7 +140,9 @@ export default function InstallPWA() {
       <div className="bg-white rounded-lg shadow-xl w-full max-w-lg p-5 animate-fadeIn">
         {/* Header */}
         <div className="flex items-start gap-3">
-          <img
+          <Image
+            width={56}
+            height={56}
             src="/icons/icon-192.png"
             alt="App icon"
             className="md:w-14 md:h-14 h-10 w-10 rounded-md"
@@ -160,7 +163,7 @@ export default function InstallPWA() {
         {isIOS ? (
           <div className="mt-5 text-sm md:text-base  text-gray-600 leading-snug space-y-3">
             <p>
-              Tap <span className="font-semibold">Share</span> <span className="text-lg"><Share2/></span>{" "}
+              Tap <span className="font-semibold">Share</span> <span className="text-lg"><Share2 /></span>{" "}
               then select <span className="font-semibold">Add to Home Screen</span> to install the
               app on your iPhone.
             </p>

@@ -4,11 +4,17 @@ import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SERVICES } from "@/data/services";
 import * as LucideIcons from "lucide-react";
 import Link from "next/link";
-
+import { SERVICES as ALL_SERVICES } from "@/data/services";
 gsap.registerPlugin(ScrollTrigger);
+
+const SERVICES = ALL_SERVICES.map(({ id, title, slug, excerpt }) => ({
+  id,
+  title,
+  slug,
+  excerpt,
+}));
 
 type LucideIconComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
@@ -35,28 +41,26 @@ const iconMap: Record<string, LucideIconComponent> = {
   "Employment & Labour Compliance": LucideIcons.CheckCircle,
 };
 
-// ✅ fallback icon
 const DefaultIcon = LucideIcons.CircleDot;
 
-// Light background colors for cards (cycling through subtle pastels)
 const lightBgColors = [
-  "bg-red-50",
-  "bg-blue-50",
-  "bg-green-50",
-  "bg-yellow-50",
-  "bg-purple-50",
-  "bg-pink-50",
-  "bg-indigo-50",
-  "bg-emerald-50",
-  "bg-cyan-50",
-  "bg-amber-50",
-  "bg-rose-50",
-  "bg-slate-50",
-  "bg-orange-50",
-  "bg-lime-50",
-  "bg-teal-50",
-  "bg-violet-50",
-  "bg-sky-50",
+  "bg-red-300",
+  "bg-blue-300",
+  "bg-green-300",
+  "bg-yellow-300",
+  "bg-purple-300",
+  "bg-pink-300",
+  "bg-indigo-300",
+  "bg-emerald-300",
+  "bg-cyan-300",
+  "bg-amber-300",
+  "bg-rose-300",
+  "bg-slate-300",
+  "bg-orange-300",
+  "bg-lime-300",
+  "bg-teal-300",
+  "bg-violet-300",
+  "bg-sky-300",
 ];
 
 export default function ServicesShowcase() {
@@ -69,77 +73,70 @@ export default function ServicesShowcase() {
     const scroll = scrollRef.current;
     if (!section || !scroll) return;
 
-    // Refresh ScrollTrigger to handle responsive changes
     ScrollTrigger.refresh();
 
     const totalWidth = scroll.scrollWidth;
     const viewportWidth = window.innerWidth;
     const scrollDistance = Math.max(0, totalWidth - viewportWidth);
 
-    // Horizontal scroll tween
-    const tween = gsap.to(scroll, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: () => `+=${Math.max(scrollDistance, viewportWidth)}`,
-        scrub: 0.5,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
+    let tween: gsap.core.Tween | null = null;
+    if (window.innerWidth >= 1024) {
+      tween = gsap.to(scroll, {
+        x: -scrollDistance,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${Math.max(scrollDistance, viewportWidth)}`,
+          scrub: 0.5,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+    }
 
-    // Staggered scroll-triggered animations for cards
     const cards = cardsRef.current.filter(Boolean);
     cards.forEach((card, index) => {
       gsap.fromTo(
         card,
-        {
-          opacity: 0,
-          scale: 0.8,
-          rotationX: -15,
-          y: 50,
-        },
+        { opacity: 0, scale: 0.95, y: 30 },
         {
           opacity: 1,
           scale: 1,
-          rotationX: 0,
           y: 0,
-          duration: 0.8,
-          ease: "back.out(1.7)",
+          duration: 0.6,
+          ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 80%",
-            end: "bottom 20%",
-            scrub: 1,
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
             invalidateOnRefresh: true,
           },
-          delay: index * 0.2, // Stagger start based on index
+          delay: index * 0.1,
         }
       );
     });
 
-    // Handle window resize for responsiveness
-    const handleResize = () => {
-      ScrollTrigger.refresh();
-    };
+    const handleResize = () => ScrollTrigger.refresh();
     window.addEventListener("resize", handleResize);
 
     return () => {
-      tween.kill();
+      if (tween) tween.kill();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
+  const displayedServices =
+    typeof window !== "undefined" && window.innerWidth < 1024
+      ? SERVICES.slice(0, 4)
+      : SERVICES;
   return (
     <section
       ref={sectionRef}
       className="relative w-full bg-white py-12 sm:py-16 lg:py-20 overflow-hidden"
     >
-      {/* Heading */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12 lg:mb-16 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -155,52 +152,62 @@ export default function ServicesShowcase() {
         </p>
       </div>
 
-      {/* Horizontal Scroll Cards */}
-      <div ref={scrollRef} className="flex gap-4 sm:gap-6 px-4 sm:px-6 lg:px-8">
-        {SERVICES.map((service, index) => {
+      <div
+        ref={scrollRef}
+        className="grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-nowrap gap-4 sm:gap-6 px-4 sm:px-6 lg:px-8 lg:overflow-visible"
+      >
+        {displayedServices.map((service, index) => {
           const Icon = iconMap[service.title] || DefaultIcon;
           const bgColor = lightBgColors[index % lightBgColors.length];
           return (
             <motion.div
               key={service.id}
-              ref={(el) => { cardsRef.current[index] = el; }}
+              ref={(el) => {
+                cardsRef.current[index] = el;
+              }}
               whileHover={{
-                y: -4,
+                y: -1,
                 scale: 1.02,
                 boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className={`min-w-[14rem] sm:min-w-[16rem] md:min-w-[18rem] lg:min-w-[20rem] xl:min-w-[22rem]
-                         h-auto max-h-[12rem] sm:max-h-[14rem] md:max-h-[16rem] flex-shrink-0
+              className={`w-full lg:min-w-[22rem] lg:max-w-[22rem] lg:flex-shrink-0
+                         h-auto min-h-[16rem] max-h-[18rem]
                          ${bgColor} border border-neutral-200 rounded-xl sm:rounded-2xl 
-                         p-4 sm:p-5 lg:p-6 shadow-sm transition-all duration-300 hover:border-black/20
-                         flex flex-col justify-between`}
+                         p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-black/20
+                         flex flex-col justify-between cursor-pointer`}
             >
-              <div className="mb-3 sm:mb-4 flex-shrink-0">
-                <Icon width={24} height={24} className="text-black" />
+              <div className="mb-4 flex-shrink-0">
+                <Icon width={28} height={28} className="text-tila-text" />
               </div>
               <div className="flex-1 min-h-0 overflow-hidden">
-                <h3 className="text-tila-text font-semibold text-base sm:text-lg md:text-xl mb-2 leading-tight">
+                <h3 className="text-tila-text font-semibold text-lg sm:text-xl mb-2 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-tila-text text-xs sm:text-sm md:text-base leading-relaxed line-clamp-3 opacity-90 mb-3 sm:mb-4">
+                <p className="text-tila-text text-sm sm:text-base leading-relaxed line-clamp-3 opacity-90 mb-4">
                   {service.excerpt}
                 </p>
               </div>
               <Link
                 href={`/services/${service.slug}`}
-                className="text-tila-text text-xs sm:text-sm font-medium hover:underline self-start"
+                className="text-black text-sm font-medium  self-start inline-flex items-center gap-1"
               >
-                Read More →
+                Read More <LucideIcons.ChevronRight size={16} />
               </Link>
             </motion.div>
           );
         })}
       </div>
-
-      {/* Gradient fade edges - responsive width */}
-      <div className="absolute inset-y-0 left-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+      <div className="flex justify-center mt-8 lg:hidden">
+        <Link
+          href="/services"
+          className="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-neutral-800 transition"
+        >
+          Explore More
+        </Link>
+      </div>
+      <div className="hidden lg:block absolute inset-y-0 left-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-16 sm:w-24 lg:w-32 bg-gradient-to-l from-white to-transparent pointer-events-none" />
     </section>
   );
 }
