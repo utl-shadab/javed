@@ -11,7 +11,7 @@ module.exports = {
           secondary: '#C0DBFF',
           text: '#333333',
           lightText: '#777777',
-          primary: '#0a66ff'
+          primary: '#2F56C8'
         }
       },
      

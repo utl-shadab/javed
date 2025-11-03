@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function ServerErrorPage() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center text-center bg-white px-6">
-      <h1 className="text-[100px] font-extrabold text-[#0A66FF] leading-none">
+      <h1 className="text-[100px] font-extrabold text-[#2F56C8] leading-none">
         500
       </h1>
       <h2 className="text-2xl font-semibold text-[#222B38] mt-4">
@@ -14,7 +14,7 @@ export default function ServerErrorPage() {
       </p>
       <Link
         href="/"
-        className="mt-8 px-6 py-3 bg-[#0A66FF] text-white rounded-full font-medium hover:bg-[#094bbf] transition"
+        className="mt-8 px-6 py-3 bg-[#2F56C8] text-white rounded-full font-medium hover:bg-[#094bbf] transition"
       >
         Go Home
       </Link>

@@ -27,7 +27,7 @@ export default function ServiceDetailPage({ service }: Props) {
           {/* 🔹 Back Button */}
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 text-[#0A66FF] hover:underline text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 text-[#2F56C8] hover:underline text-sm font-medium mb-6"
           >
             <ArrowLeft size={16} /> Back to Practice Areas
           </Link>
@@ -70,7 +70,7 @@ export default function ServiceDetailPage({ service }: Props) {
           <div className="mt-12 text-center">
             <Link
               href="/contact"
-              className="inline-block px-6 py-3 bg-[#0A66FF] text-white rounded-full text-sm font-medium hover:bg-[#094bbf] transition"
+              className="inline-block px-6 py-3 bg-[#2F56C8] text-white rounded-full text-sm font-medium hover:bg-[#094bbf] transition"
             >
               Book Consultation
             </Link>

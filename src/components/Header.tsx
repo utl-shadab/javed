@@ -128,7 +128,7 @@ export default function Header() {
               {item.type ? (
                 <button
                   onClick={() => handleMenuClick(item.label)}
-                  className="flex items-center gap-1 hover:text-[#0A66FF] transition-colors"
+                  className="flex items-center gap-1 hover:text-[#2F56C8] transition-colors"
                 >
                   {item.label}
                   <ChevronDown
@@ -142,7 +142,7 @@ export default function Header() {
                   <Link
                     href={item.href as string}
                     onClick={() => setOpenMenu(null)}
-                    className="hover:text-[#0A66FF] transition-colors"
+                    className="hover:text-[#2F56C8] transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -192,7 +192,7 @@ export default function Header() {
                                 <li key={link}>
                                   <Link
                                     href={`/services/${slug}`}
-                                    className="text-neutral-700 hover:text-[#0A66FF] transition-colors block text-base"
+                                    className="text-neutral-700 hover:text-[#2F56C8] transition-colors block text-base"
                                     onClick={() => setOpenMenu(null)}
                                   >
                                     {link}
@@ -213,7 +213,7 @@ export default function Header() {
 
         <Link
           href="/contact"
-          className="px-6 py-2 rounded-full bg-[#0A66FF] text-white text-sm font-medium hover:bg-[#0939B5] transition-all hover:scale-105"
+          className="px-6 py-2 rounded-full bg-[#2F56C8] text-white text-sm font-medium hover:bg-[#0939B5] transition-all hover:scale-105"
         >
           Book Appointment
         </Link>
@@ -253,7 +253,7 @@ export default function Header() {
         {NAV.map((item) =>
           item.type === "dropdown" ? (
             <details key={item.label} className="group">
-              <summary className="cursor-pointer text-lg font-medium hover:text-[#0A66FF] flex justify-between items-center list-none">
+              <summary className="cursor-pointer text-lg font-medium hover:text-[#2F56C8] flex justify-between items-center list-none">
                 {item.label}
                 <ChevronDown
                   size={18}
@@ -266,7 +266,7 @@ export default function Header() {
                     <Link
                       href={sub.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-1 hover:text-[#0A66FF] transition-colors"
+                      className="block py-1 hover:text-[#2F56C8] transition-colors"
                     >
                       {sub.label}
                     </Link>
@@ -276,7 +276,7 @@ export default function Header() {
             </details>
           ) : item.type === "mega" ? (
             <details key={item.label} className="group">
-              <summary className="cursor-pointer text-lg font-medium hover:text-[#0A66FF] flex justify-between items-center list-none">
+              <summary className="cursor-pointer text-lg font-medium hover:text-[#2F56C8] flex justify-between items-center list-none">
                 {item.label}
                 <ChevronDown
                   size={18}
@@ -298,7 +298,7 @@ export default function Header() {
                             <Link
                               href={`/services/${slug}`}
                               onClick={() => setMobileOpen(false)}
-                              className="block py-1 hover:text-[#0A66FF] transition-colors"
+                              className="block py-1 hover:text-[#2F56C8] transition-colors"
                             >
                               {link}
                             </Link>
@@ -315,7 +315,7 @@ export default function Header() {
               key={item.label}
               href={item.href || "#"}
               onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium hover:text-[#0A66FF] transition-colors"
+              className="text-lg font-medium hover:text-[#2F56C8] transition-colors"
             >
               {item.label}
             </Link>
@@ -325,7 +325,7 @@ export default function Header() {
         <Link
           href="/contact"
           onClick={() => setMobileOpen(false)}
-          className="mt-8 px-6 py-3 rounded-full bg-[#0A66FF] text-white font-semibold text-center hover:bg-[#0939B5] transition-all"
+          className="mt-8 px-6 py-3 rounded-full bg-[#2F56C8] text-white font-semibold text-center hover:bg-[#0939B5] transition-all"
         >
           Book Appointment
         </Link>

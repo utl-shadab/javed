@@ -19,7 +19,7 @@ export default function NotFoundPage() {
           initial={{ scale: 0.9 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="text-[120px] font-extrabold text-[#0A66FF] leading-none"
+          className="text-[120px] font-extrabold text-[#2F56C8] leading-none"
         >
           404
         </motion.h1>
@@ -36,7 +36,7 @@ export default function NotFoundPage() {
         <div className="mt-8">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-[#0A66FF] text-white rounded-full font-medium hover:bg-[#094bbf] transition"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-[#2F56C8] text-white rounded-full font-medium hover:bg-[#094bbf] transition"
           >
             <ArrowLeft size={18} />
             Back to Home

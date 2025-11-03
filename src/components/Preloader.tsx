@@ -51,7 +51,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onFinish }) => {
             <span className="opacity-0 text-[#222B38]">
               Shaping the future of finance,{" "}
             </span>
-            <span className="text-[#0A66FF] opacity-100">{words[index]}</span>
+            <span className="text-[#2F56C8] opacity-100">{words[index]}</span>
           </motion.h1>
 
           {/* Static hidden paragraph (optional, non-animated) */}

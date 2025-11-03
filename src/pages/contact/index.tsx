@@ -54,7 +54,7 @@ export default function ContactPage() {
         <div className="mt-12 text-center">
           <a
             href="mailto:contact@theindianlegalassociates.com"
-            className="inline-block px-6 py-3 bg-[#0A66FF] text-white rounded-full text-sm font-medium hover:bg-[#094bbf] transition"
+            className="inline-block px-6 py-3 bg-[#2F56C8] text-white rounded-full text-sm font-medium hover:bg-[#094bbf] transition"
           >
             Send Us a Message
           </a>

@@ -19,7 +19,7 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className="w-[3%] sm:w-[2.5%] rounded-t-full bg-[#0a66ff]"
+              className="w-[3%] sm:w-[2.5%] rounded-t-full bg-[#2F56C8]"
               initial={{ height: Math.random() * 60 + 20 }}
               variants={variants}
               animate={{
@@ -62,7 +62,7 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
             initial="hidden"
             animate={startAnimation ? "visible" : "hidden"}
             transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
-            className="text-[#0A66FF] inline-block"
+            className="text-[#2F56C8] inline-block"
           >
             We build it deliberately, for you.
           </motion.span>

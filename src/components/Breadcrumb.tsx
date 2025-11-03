@@ -43,7 +43,7 @@ export default function Breadcrumb() {
             className="text-sm text-[#60656F] mb-6 flex flex-wrap items-center gap-1"
             aria-label="Breadcrumb"
         >
-            <Link href="/" className="hover:text-[#0A66FF] transition-colors">
+            <Link href="/" className="hover:text-[#2F56C8] transition-colors">
                 Home
             </Link>
 
@@ -55,7 +55,7 @@ export default function Breadcrumb() {
                     ) : (
                         <Link
                             href={crumb.href}
-                            className="hover:text-[#0A66FF] transition-colors"
+                            className="hover:text-[#2F56C8] transition-colors"
                         >
                             {crumb.label}
                         </Link>

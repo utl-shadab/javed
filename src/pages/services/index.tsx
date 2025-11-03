@@ -36,7 +36,7 @@ export default function ServicesPage() {
               transition={{ delay: 0.1 * i, duration: 0.5 }}
               className="group border border-neutral-200 rounded-2xl p-6 text-left shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
             >
-              <h3 className="text-lg font-semibold text-[#0A66FF] mb-2">
+              <h3 className="text-lg font-semibold text-[#2F56C8] mb-2">
                 {service.title}
               </h3>
               <p className="text-sm text-[#60656F] mb-4">
@@ -44,7 +44,7 @@ export default function ServicesPage() {
               </p>
               <Link
                 href={`/services/${service.slug}`}
-                className="text-[#0A66FF] font-medium text-sm hover:underline"
+                className="text-[#2F56C8] font-medium text-sm hover:underline"
               >
                 Read More →
               </Link>
