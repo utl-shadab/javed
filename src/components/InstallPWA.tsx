@@ -93,6 +93,7 @@
 //   prompt(): Promise<void>;
 // }
 
+"use client";
 import { Share2 } from "lucide-react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -102,43 +103,43 @@ export default function InstallPWA() {
   const [visible, setVisible] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
 
-  // Detect PWA install event or iOS device
   useEffect(() => {
+    // ANDROID / CHROME INSTALL PROMPT
     const handler = (e: Event) => {
       e.preventDefault();
-      // @ts-ignore — Chrome provides this dynamically
-      setDeferred(e);
+      setDeferred(e as BeforeInstallPromptEvent);
       setVisible(true);
     };
-
     window.addEventListener("beforeinstallprompt", handler);
 
-    // Detect iOS (Safari)
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const isIOSDevice =
-      /iphone|ipad|ipod/.test(userAgent) &&
-      !("standalone" in window.navigator && (window.navigator as any).standalone);
-    if (isIOSDevice) setIsIOS(true);
+    // ✅ iOS Detection (only Safari, not installed already)
+    const ua = navigator.userAgent.toLowerCase();
+    const iOS = /iphone|ipad|ipod/.test(ua);
+    const standalone =
+      window.matchMedia("(display-mode: standalone)").matches ||
+      // fallback for older iOS
+      (window.navigator as any).standalone === true;
+
+    if (iOS && !standalone) {
+      setIsIOS(true);
+      setVisible(true);
+    }
 
     return () => window.removeEventListener("beforeinstallprompt", handler);
   }, []);
 
   const install = async () => {
     if (!deferred) return;
-    // @ts-ignore
-    deferred.prompt();
+    await deferred.prompt();
     setVisible(false);
   };
 
-  // iOS users see this guide once
-  const showPopup = visible || isIOS;
-
-  if (!showPopup) return null;
+  // ✅ Hide when user clicks close
+  if (!visible) return null;
 
   return (
-    <div className="fixed font-tila inset-0 flex items-center justify-center bg-black/40 z-[99999999999] px-4">
+    <div className="fixed font-tila inset-0 flex items-center justify-center bg-black/40 z-[999999] px-4">
       <div className="bg-white rounded-lg shadow-xl w-full max-w-lg p-5 animate-fadeIn">
-        {/* Header */}
         <div className="flex items-start gap-3">
           <Image
             width={56}
@@ -148,10 +149,10 @@ export default function InstallPWA() {
             className="md:w-14 md:h-14 h-10 w-10 rounded-md"
           />
           <div>
-            <h2 className="text-xl md:text-2xl  font-semibold text-gray-900">
-              {isIOS ? "Add to Home Screen" : "Install app?"}
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
+              {isIOS ? "Add to Home Screen" : "Install App?"}
             </h2>
-            <p className="text-xs md:text-base  text-gray-600 leading-snug">
+            <p className="text-xs md:text-base text-gray-600 leading-snug">
               TILA Progressive Web App
               <br />
               app.tila.com
@@ -159,30 +160,29 @@ export default function InstallPWA() {
           </div>
         </div>
 
-        {/* iOS instructions */}
-        {isIOS ? (
-          <div className="mt-5 text-sm md:text-base  text-gray-600 leading-snug space-y-3">
+        {/* ✅ iOS instructions */}
+        {isIOS && (
+          <div className="mt-5 text-sm md:text-base text-gray-600 leading-snug space-y-3">
             <p>
-              Tap <span className="font-semibold">Share</span> <span className="text-lg"><Share2 /></span>{" "}
-              then select <span className="font-semibold">Add to Home Screen</span> to install the
-              app on your iPhone.
+              Tap <b>Share</b> <Share2 className="inline" size={18} /> → 
+              <b> Add to Home Screen</b>
             </p>
           </div>
-        ) : null}
+        )}
 
-        {/* Buttons */}
         <div className="flex justify-end mt-6 gap-3">
           <button
             onClick={() => setVisible(false)}
             className="px-4 py-1.5 text-tila-primary font-medium text-sm hover:bg-gray-100 rounded transition-colors"
           >
-            {isIOS ? "Close" : "Cancel"}
+            Close
           </button>
 
-          {!isIOS && (
+          {/* ✅ Only Android gets Install button */}
+          {!isIOS && deferred && (
             <button
               onClick={install}
-              className="px-7 py-2 md:py-2.5 bg-tila-primary text-tila-surface font-medium text-sm rounded hover:bg-[#1765c1] transition-colors"
+              className="px-7 py-2 bg-tila-primary text-white font-medium text-sm rounded hover:bg-[#1765c1] transition-colors"
             >
               Install
             </button>
@@ -198,4 +198,5 @@ interface BeforeInstallPromptEvent extends Event {
   readonly userChoice: Promise<{ outcome: "accepted" | "dismissed"; platform: string }>;
   prompt(): Promise<void>;
 }
+
 

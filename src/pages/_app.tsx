@@ -3,15 +3,28 @@ import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
 import Head from "next/head";
-import Header from "@/components/Header"; 
-import Footer from "@/components/Footer"; 
-
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { useEffect } from "react";
 
 const ScrollProvider = dynamic(() => import("@/components/ScrollProvider"), {
   ssr: false,
 });
 
 export default function App({ Component, pageProps, router }: AppProps) {
+
+  // ✅ REGISTER SERVICE WORKER HERE
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("/sw.js")
+          .then(() => console.log("✅ Service Worker registered"))
+          .catch((err) => console.log("❌ SW registration failed", err));
+      });
+    }
+  }, []);
+
   const currentPath = router.pathname;
   const hideLayout =
     currentPath === "/404" ||
@@ -27,8 +40,8 @@ export default function App({ Component, pageProps, router }: AppProps) {
 
       <ScrollProvider>
         <AnimatePresence mode="wait" initial={false}>
-          {!hideLayout && <Header />} 
-          
+          {!hideLayout && <Header />}
+
           <main className="min-h-screen">
             <Component {...pageProps} key={router.pathname} />
           </main>
