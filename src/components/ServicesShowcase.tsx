@@ -173,7 +173,7 @@ export default function ServicesShowcase() {
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               className={`w-full lg:min-w-[40rem] lg:max-w-[22rem] lg:flex-shrink-0
                          h-auto md:min-h-[20rem] md:max-h-[18rem]
-                         bg-white border border-tila-primary rounded-xl sm:rounded-2xl 
+                         bg-white  rounded-xl sm:rounded-2xl 
                          p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-tila-primary
                          flex flex-col justify-between cursor-pointer`}
             >
