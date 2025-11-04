@@ -64,11 +64,11 @@ const VideoSection: React.FC = () => {
         };
     }, []);
     return (
-        <section ref={sectionRef} id="video" className="py-0 relative">
+        <section ref={sectionRef} id="video" className="py-0 relative ">
             <div ref={videoContainerRef} className="mx-auto max-w-5xl px-6">
                 <div
                     ref={wrapRef}
-                    className="rounded-3xl overflow-hidden h-[420px] md:h-[520px] relative bg-black"
+                    className="rounded-3xl overflow-hidden h-[720px] sm:h-[520px] relative bg-black"
                     style={{ boxShadow: "0 20px 40px rgba(0,0,0,0.12)" }}
                 >
 
@@ -82,10 +82,10 @@ const VideoSection: React.FC = () => {
                     />
 
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="text-white text-5xl md:text-7xl font-extrabold text-center">
-                            <span>Connect.</span>
+                        <div className="text-white text-4xl md:text-7xl font-extrabold text-center">
+                            <span>Deliberate.</span>
                             <br />
-                            <span>Share. Invest.</span>
+                            <span>Legal. Excellence.</span>
                         </div>
                     </div>
 

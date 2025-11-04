@@ -1,39 +1,17 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
-import gsap from "gsap";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const footerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".footer-item",
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power3.out",
-          stagger: 0.2,
-          scrollTrigger: {
-            trigger: footerRef.current,
-            start: "top 90%",
-          },
-        }
-      );
-    }, footerRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <footer
       ref={footerRef}
-      className="relative bg-tila-primary text-white py-16 px-6 md:px-20 overflow-hidden rounded-[40px] "
+      className="relative bg-tila-primary text-white py-16 px-6 md:px-20 overflow-hidden rounded-tr-[40px] md:rounded-[40px] rounded-tl-[40px] mt-10"
     >
       {/* Subtle background shapes */}
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#8e96c5] rounded-full blur-3xl"></div>
@@ -42,21 +20,17 @@ export default function Footer() {
       {/* Content */}
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-12 max-w-7xl mx-auto">
         {/* Left section */}
-        <div className="footer-item max-w-md space-y-4">
-          <motion.img
+        <div className=" max-w-md space-y-4">
+          <Image
             src="/tila-white.png"
             alt="The Indian Legal Associates"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className=" w-40 sm:w-48 lg:w-80 object-contain"
+            width={200}
+            height={30}
+            className="object-contain"
           />
 
 
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
             className="text-sm leading-relaxed text-gray-200"
           >
             Our mission is to simplify legal services, provide expert counsel,
@@ -87,7 +61,7 @@ export default function Footer() {
 
         {/* Right navigation */}
         <motion.ul
-          className="footer-item flex flex-col space-y-4 text-lg text-gray-200 font-medium"
+          className=" flex flex-col space-y-4 text-lg text-gray-200 font-medium"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}

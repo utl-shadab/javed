@@ -9,6 +9,9 @@ import Preloader from "@/components/Preloader";
 import InstallPWA from "@/components/InstallPWA";
 import VideoSection from "@/components/VideoSection";
 import ServicesShowcase from "@/components/ServicesShowcase";
+import About from "@/components/About";
+import ContactCTA from "@/components/ContactCTA";
+import Team from "@/components/Team";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -89,15 +92,16 @@ export default function Home() {
       <div ref={scrollSectionsRef}>
         <section
           ref={videoSectionRef}
-          className="h-screen flex items-center justify-center bg-transparent"
+          className="h-screen flex items-center justify-center bg-tila-secondary"
         >
           <VideoSection />
         </section>
-
+        <About />
+        <Team/>
         <ServicesShowcase />
 
-        <section className="h-screen bg-[#0f172a] flex items-center justify-center">
-          <h2 className="text-4xl text-white font-semibold">Ready to Join Us?</h2>
+        <section className="h-screen bg-blue-50 flex items-center justify-center rounded-br-3xl rounded-bl-3xl">
+          <ContactCTA/>
         </section>
       </div>
       <InstallPWA />

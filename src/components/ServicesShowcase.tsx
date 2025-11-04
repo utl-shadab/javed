@@ -43,25 +43,25 @@ const iconMap: Record<string, LucideIconComponent> = {
 
 const DefaultIcon = LucideIcons.CircleDot;
 
-const lightBgColors = [
-  "bg-red-300",
-  "bg-blue-300",
-  "bg-green-300",
-  "bg-yellow-300",
-  "bg-purple-300",
-  "bg-pink-300",
-  "bg-indigo-300",
-  "bg-emerald-300",
-  "bg-cyan-300",
-  "bg-amber-300",
-  "bg-rose-300",
-  "bg-slate-300",
-  "bg-orange-300",
-  "bg-lime-300",
-  "bg-teal-300",
-  "bg-violet-300",
-  "bg-sky-300",
-];
+// const lightBgColors = [
+//   "bg-white",
+//   "bg-blue-300",
+//   "bg-green-300",
+//   "bg-yellow-300",
+//   "bg-purple-300",
+//   "bg-pink-300",
+//   "bg-indigo-300",
+//   "bg-emerald-300",
+//   "bg-cyan-300",
+//   "bg-amber-300",
+//   "bg-rose-300",
+//   "bg-slate-300",
+//   "bg-orange-300",
+//   "bg-lime-300",
+//   "bg-teal-300",
+//   "bg-violet-300",
+//   "bg-sky-300",
+// ];
 
 export default function ServicesShowcase() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -135,7 +135,7 @@ export default function ServicesShowcase() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white py-12 sm:py-16 lg:py-20 overflow-hidden"
+      className="relative w-full bg-gray-100 py-12 sm:py-16 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-8 sm:mb-12 lg:mb-16 text-center">
         <motion.h2
@@ -158,7 +158,7 @@ export default function ServicesShowcase() {
       >
         {displayedServices.map((service, index) => {
           const Icon = iconMap[service.title] || DefaultIcon;
-          const bgColor = lightBgColors[index % lightBgColors.length];
+          // const bgColor = lightBgColors[index % lightBgColors.length];
           return (
             <motion.div
               key={service.id}
@@ -167,30 +167,30 @@ export default function ServicesShowcase() {
               }}
               whileHover={{
                 y: -1,
-                scale: 1.02,
+                scale: 1.01,
                 boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
               }}
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
-              className={`w-full lg:min-w-[22rem] lg:max-w-[22rem] lg:flex-shrink-0
-                         h-auto min-h-[16rem] max-h-[18rem]
-                         ${bgColor} border border-neutral-200 rounded-xl sm:rounded-2xl 
-                         p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-black/20
+              className={`w-full lg:min-w-[40rem] lg:max-w-[22rem] lg:flex-shrink-0
+                         h-auto md:min-h-[20rem] md:max-h-[18rem]
+                         bg-white border border-tila-primary rounded-xl sm:rounded-2xl 
+                         p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-tila-primary
                          flex flex-col justify-between cursor-pointer`}
             >
               <div className="mb-4 flex-shrink-0">
-                <Icon width={28} height={28} className="text-tila-text" />
+                <Icon width={28} height={28} className="text-tila-primary md:h-14 md:w-14 font-normal" />
               </div>
               <div className="flex-1 min-h-0 overflow-hidden">
-                <h3 className="text-tila-text font-semibold text-lg sm:text-xl mb-2 leading-tight">
+                <h3 className="text-tila-text font-medium text-lg sm:text-2xl mb-2 leading-tight">
                   {service.title}
                 </h3>
-                <p className="text-tila-text text-sm sm:text-base leading-relaxed line-clamp-3 opacity-90 mb-4">
+                <p className="text-tila-text text-sm sm:text-lg leading-relaxed line-clamp-3 opacity-90 mb-4">
                   {service.excerpt}
                 </p>
               </div>
               <Link
                 href={`/services/${service.slug}`}
-                className="text-black text-sm font-medium  self-start inline-flex items-center gap-1"
+                className="text-tila-surface text-sm sm:text-base  font-medium px-4 py-2 rounded-full bg-tila-primary  self-start inline-flex items-center gap-1"
               >
                 Read More <LucideIcons.ChevronRight size={16} />
               </Link>
@@ -198,10 +198,10 @@ export default function ServicesShowcase() {
           );
         })}
       </div>
-      <div className="flex justify-center mt-8 lg:hidden">
+      <div className="flex justify-center mt-8 md:hidden px-6">
         <Link
           href="/services"
-          className="px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-neutral-800 transition"
+          className="px-6 py-3 w-full text-center bg-black text-white rounded-full font-medium hover:bg-neutral-800 transition"
         >
           Explore More
         </Link>
