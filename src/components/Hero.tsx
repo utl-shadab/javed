@@ -11,15 +11,15 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center h-[80vh] md:min-h-screen bg-white overflow-hidden"
+      className="relative flex flex-col items-center justify-center min-h-[100svh] bg-white overflow-hidden px-4 sm:px-6"
     >
       {/* Background trading bars */}
-      <div className="absolute bottom-0 left-0 w-full h-40 sm:h-[200px] md:h-[260px] overflow-hidden pointer-events-none">
-        <div className="absolute bottom-0 w-full h-full flex items-end justify-between px-[2vw]">
+      <div className="absolute bottom-0 left-0 w-full h-[20svh] sm:h-[25svh] overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 w-full h-full flex items-end justify-between px-[1vw] sm:px-[2vw]">
           {Array.from({ length: 20 }).map((_, i) => (
             <motion.div
               key={i}
-              className="w-[3%] sm:w-[2.5%] rounded-t-full bg-[#2F56C8]"
+              className="w-[1.5%] sm:w-[2.5%] rounded-t-full bg-[#2F56C8]"
               initial={{ height: Math.random() * 60 + 20 }}
               variants={variants}
               animate={{
@@ -41,20 +41,19 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
         </div>
 
         {/* Subtle gradient fade */}
-        <div className="absolute bottom-0 w-full h-full bg-linear-to-t from-white via-white/30 to-transparent"></div>
+        <div className="absolute bottom-0 w-full h-full bg-gradient-to-t from-white via-white/30 to-transparent"></div>
       </div>
 
       {/* Content wrapper */}
-      <div className="text-center p-3 sm:px-6 md:px-12 z-10">
+      <div className="text-center z-10 w-full max-w-4xl mx-auto py-8 sm:py-12">
         {/* Heading */}
         <motion.h1
           variants={variants}
           initial="hidden"
           animate={startAnimation ? "visible" : "hidden"}
           transition={{ delay: 0.3, duration: 0.9, ease: "easeOut" }}
-          className="font-extrabold text-[#222B38]  leading-[1.05] tracking-tight
-                     text-[30px] sm:text-[36px] md:text-[60px] lg:text-[80px]"
-
+          className="font-extrabold text-[#222B38] leading-[1.1] sm:leading-[1.05] tracking-tight
+                     text-[1.75rem] sm:text-[2rem] md:text-[3rem] lg:text-[4rem] xl:text-[5rem]"
         >
           We don’t just give advice,{" "}
           <motion.span
@@ -70,10 +69,11 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
 
         {/* Description */}
         <motion.p
-          initial={{ opacity: 0, y: 10 }}
+          variants={variants}
+          initial="hidden"
           animate={startAnimation ? "visible" : "hidden"}
           transition={{ delay: 1.3, duration: 0.8, ease: "easeOut" }}
-          className="mt-8 max-w-2xl mx-auto text-center text-[#60656F] text-sm sm:text-lg  leading-relaxed"
+          className="mt-6 sm:mt-8 max-w-2xl mx-auto text-center text-[#60656F] text-xs sm:text-sm md:text-base leading-relaxed px-2"
         >
           The Indian Legal Associates is a reputed multi-disciplinary boutique law firm based in Delhi & Noida, offering strategic, result-oriented, and client-focused legal solutions.
         </motion.p>
@@ -85,7 +85,7 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
             }}
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className="mt-8 px-6 py-3 bg-tila-primary text-white rounded-full text-sm sm:text-base font-medium hover:bg-tila-primary/80 transition"
+            className="mt-6 sm:mt-8 px-4 sm:px-6 py-3 bg-tila-primary text-white rounded-full text-xs sm:text-sm md:text-base font-medium hover:bg-tila-primary/80 transition"
           >
             Get in Touch
           </motion.button>
