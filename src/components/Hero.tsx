@@ -11,7 +11,7 @@ const Hero: React.FC<{ startAnimation: boolean }> = ({ startAnimation }) => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col items-center justify-center min-h-screen bg-white overflow-hidden"
+      className="relative flex flex-col items-center justify-center h-[80vh] md:min-h-screen bg-white overflow-hidden"
     >
       {/* Background trading bars */}
       <div className="absolute bottom-0 left-0 w-full h-40 sm:h-[200px] md:h-[260px] overflow-hidden pointer-events-none">
