@@ -24,18 +24,18 @@ export default function ContactCTA() {
         </div>
 
         {/* LEFT TEXT */}
-        <div className="z-10 text-white max-w-lg text-center md:text-left">
+        <div className="z-10  text-tila-surface  max-w-lg text-center md:text-left">
           <h1 className="text-3xl md:text-5xl font-semibold leading-snug">
             Contact Us for Legal Assistance
           </h1>
 
-          <p className="mt-4 text-white/80 text-base md:text-lg leading-relaxed">
+          <p className="mt-4  text-tila-surface /80 text-base md:text-lg leading-relaxed">
             Experienced lawyers ready to fight for your rights
           </p>
 
           <div className="mt-7 flex justify-center md:justify-start">
             <Link href="/services">
-              <button className="px-6 py-3 bg-[#0A0A2A] text-white rounded-full font-medium">
+              <button className="px-6 py-3 bg-[#0A0A2A]  text-tila-surface  rounded-full font-medium">
                 Our areas of Law
               </button>
             </Link>

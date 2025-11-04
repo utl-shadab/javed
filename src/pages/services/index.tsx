@@ -61,7 +61,7 @@ const lightBgColors = [
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white text-[#222B38] pt-40 pb-20">
+    <main className="min-h-screen  bg-tila-surface   text-[#222B38] pt-40 pb-20">
       <div className="max-w-7xl mx-auto px-4 text-center">
         {/* Heading */}
         <motion.h1

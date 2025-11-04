@@ -73,7 +73,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white">
+    <div className="relative min-h-screen  bg-tila-surface  ">
       {!animationStarted && <Preloader onFinish={handlePreloaderFinish} />}
 
       <motion.div

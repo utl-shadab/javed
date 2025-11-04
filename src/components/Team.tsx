@@ -57,16 +57,16 @@ const cardVariants = {
 
 export default function Team() {
   return (
-    <section aria-labelledby="team-heading" className="py-12 md:py-20 bg-white">
+    <section aria-labelledby="team-heading" className="py-12 md:py-20 bg-tila-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto text-center max-w-3xl">
           <h2
             id="team-heading"
-            className="text-3xl md:text-4xl font-semibold leading-tight text-slate-900"
+            className="text-3xl md:text-4xl font-semibold leading-tight text-tila-text"
           >
             Our Team
           </h2>
-          <p className="mt-4 text-slate-600">
+          <p className="mt-4 text-tila-lightText">
             A balanced mix of senior advocates, legal consultants and young professionals delivering practical,
             result-oriented legal solutions across India.
           </p>
@@ -101,7 +101,7 @@ export default function Team() {
                       }}
                     />
                   ) : (
-                    <span className="text-xl font-medium text-slate-700">
+                    <span className="text-xl font-medium text-tila-text">
                       {member.name
                         .split(" ")
                         .map((n) => n[0])
@@ -112,23 +112,23 @@ export default function Team() {
                 </div>
 
                 <div className="min-w-0">
-                  <h3 id={`${member.id}-name`} className="text-lg font-semibold text-slate-900">
+                  <h3 id={`${member.id}-name`} className="text-lg font-semibold text-tila-text">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-slate-600">{member.role}</p>
+                  <p className="text-sm text-tila-lightText">{member.role}</p>
                   {member.experience && (
-                    <p className="text-xs mt-1 text-slate-500">{member.experience}</p>
+                    <p className="text-xs mt-1 text-tila-lightText">{member.experience}</p>
                   )}
                 </div>
               </div>
 
-              <p className="mt-4 text-sm text-slate-700 leading-relaxed">{member.bio}</p>
+              <p className="mt-4 text-sm text-tila-text leading-relaxed">{member.bio}</p>
 
               <div className="mt-4 flex items-center gap-3">
                 {member.phone && (
                   <a
                     href={`tel:${member.phone}`}
-                    className="inline-flex items-center gap-2 text-sm rounded-md px-3 py-2 bg-white/60 border border-slate-100 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-slate-300"
+                    className="inline-flex items-center gap-2 text-sm rounded-md px-3 py-2  bg-tila-surface  /60 border border-slate-100 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-slate-300"
                     aria-label={`Call ${member.name}`}
                   >
                     <Phone className="w-4 h-4" />
@@ -139,7 +139,7 @@ export default function Team() {
                 {/* {member.email && (
                   <a
                     href={`mailto:${member.email}`}
-                    className="inline-flex items-center gap-2 md:hidden text-sm rounded-md px-3 py-2 bg-white/60 border border-slate-100 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-slate-300"
+                    className="inline-flex items-center gap-2 md:hidden text-sm rounded-md px-3 py-2  bg-tila-surface  /60 border border-slate-100 shadow-sm hover:shadow focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-slate-300"
                     aria-label={`Email ${member.name}`}
                   >
                     <Mail className="w-4 h-4" />
@@ -154,7 +154,7 @@ export default function Team() {
                       `View profile for ${member.name} — this demo button can be wired to open a modal or navigate to a detailed team page.`
                     )
                   }
-                  className="ml-auto text-sm font-medium underline text-slate-700"
+                  className="ml-auto text-sm font-medium underline text-tila-text"
                 >
                   View profile
                 </button>
@@ -166,7 +166,7 @@ export default function Team() {
         <div className="mt-10 text-center">
           <Link
             href="/contact"
-            className="inline-block px-6 py-3 rounded-full bg-slate-900 text-white text-sm font-semibold shadow hover:opacity-95"
+            className="inline-block px-6 py-3 rounded-full bg-tila-primary  text-tila-surface  text-sm font-semibold shadow hover:opacity-95"
             aria-label="Contact the firm"
           >
             Contact Our Team

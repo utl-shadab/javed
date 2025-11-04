@@ -108,7 +108,7 @@ export default function Header() {
       {/* -------- DESKTOP HEADER -------- */}
       <header
         ref={menuRef}
-        className="hidden md:flex fixed top-0 left-1/2 -translate-x-1/2 z-[9999] w-full   items-center justify-between py-4 md:px-20 bg-white   shadow-[0_4px_20px_rgba(0,0,0,0.05)] animate-slideDown"
+        className="hidden md:flex fixed top-0 left-1/2 -translate-x-1/2 z-[9999] w-full   items-center justify-between py-4 md:px-20  bg-tila-surface     shadow-[0_4px_20px_rgba(0,0,0,0.05)] animate-slideDown"
       >
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -127,7 +127,7 @@ export default function Header() {
               {item.type ? (
                 <button
                   onClick={() => handleMenuClick(item.label)}
-                  className="flex items-center gap-1 hover:text-[#2F56C8] transition-colors"
+                  className="flex items-center gap-1 hover:text-tila-primary   transition-colors"
                 >
                   {item.label}
                   <ChevronDown
@@ -141,7 +141,7 @@ export default function Header() {
                   <Link
                     href={item.href as string}
                     onClick={() => setOpenMenu(null)}
-                    className="hover:text-[#2F56C8] transition-colors"
+                    className="hover:text-tila-primary   transition-colors"
                   >
                     {item.label}
                   </Link>
@@ -150,7 +150,7 @@ export default function Header() {
 
               {/* DROPDOWN MENU */}
               {openMenu === item.label && item.type === "dropdown" && (
-                <div className="absolute top-[calc(100%+2rem)] -left-28 mt-2 w-72 bg-white border border-neutral-200 shadow-2xl  py-2 animate-fadeIn z-[10000]">
+                <div className="absolute top-[calc(100%+2rem)] -left-28 mt-2 w-72  bg-tila-surface   border border-neutral-200 shadow-2xl  py-2 animate-fadeIn z-[10000]">
                   {item.items?.map((sub) => (
                     <Link
                       key={sub.label}
@@ -173,7 +173,7 @@ export default function Header() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="fixed left-0 top-[calc(100%+1rem)] -translate-x-1/2 w-full bg-white border-t  border-neutral-200 shadow-2xl z-[10000]"
+                    className="fixed left-0 top-[calc(100%+1rem)] -translate-x-1/2 w-full  bg-tila-surface   border-t  border-neutral-200 shadow-2xl z-[10000]"
                   >
                     <div className="max-w-7xl mx-auto px-12 py-10 grid grid-cols-3 gap-10">
                       {item.columns?.map((col) => (
@@ -191,7 +191,7 @@ export default function Header() {
                                 <li key={link}>
                                   <Link
                                     href={`/services/${slug}`}
-                                    className="text-neutral-700 hover:text-[#2F56C8] transition-colors block text-base"
+                                    className="text-neutral-700 hover:text-tila-primary   transition-colors block text-base"
                                     onClick={() => setOpenMenu(null)}
                                   >
                                     {link}
@@ -212,21 +212,21 @@ export default function Header() {
 
         <Link
           href="/contact"
-          className="px-6 py-2 rounded-full bg-[#2F56C8] text-white text-sm font-medium hover:bg-[#0939B5] transition-all hover:scale-105"
+          className="px-6 py-2 rounded-full bg-tila-primary    text-tila-surface  text-sm font-medium hover:bg-[#0939B5] transition-all hover:scale-105"
         >
           Book Appointment
         </Link>
       </header>
 
       {/* -------- MOBILE HEADER -------- */}
-      <header className="md:hidden fixed top-0 left-1/2 -translate-x-1/2 w-full bg-white/70 backdrop-blur-xl border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between px-5 py-3 z-[99999]">
+      <header className="md:hidden fixed top-0 left-1/2 -translate-x-1/2 w-full  bg-tila-surface  /70 backdrop-blur-xl border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between px-5 py-3 z-[99999]">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src='/tila.png'
             alt="The Indian Legal Associates"
             width={200}
-            height={30}
-            className="object-contain"
+            height={40}
+            className="object-contain w-56"
           />
         </Link>
         <button
@@ -246,13 +246,14 @@ export default function Header() {
       )}
       <div
         ref={mobileMenuRef}
-        className={`fixed top-[3rem] right-0 w-[80%] h-[calc(100vh-3rem)] bg-white shadow-2xl z-[99999] px-8 py-8 flex flex-col space-y-6 overflow-y-auto transition-transform duration-500 ease-out ${mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-[62px] right-0 w-[80%] h-screen  bg-tila-surface   shadow-2xl z-[99999] px-8 py-8 flex flex-col space-y-4 overflow-y-auto overscroll-contain transition-transform duration-500 ease-out ${mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
+        
         {NAV.map((item) =>
           item.type === "dropdown" ? (
             <details key={item.label} className="group">
-              <summary className="cursor-pointer text-lg font-medium hover:text-[#2F56C8] flex justify-between items-center list-none">
+              <summary className="cursor-pointer text-lg font-medium hover:text-tila-primary   flex justify-between items-center list-none">
                 {item.label}
                 <ChevronDown
                   size={18}
@@ -265,7 +266,7 @@ export default function Header() {
                     <Link
                       href={sub.href}
                       onClick={() => setMobileOpen(false)}
-                      className="block py-1 hover:text-[#2F56C8] transition-colors"
+                      className="block py-1 hover:text-tila-primary transition-colors"
                     >
                       {sub.label}
                     </Link>
@@ -275,18 +276,19 @@ export default function Header() {
             </details>
           ) : item.type === "mega" ? (
             <details key={item.label} className="group">
-              <summary className="cursor-pointer text-lg font-medium hover:text-[#2F56C8] flex justify-between items-center list-none">
+              <summary className="cursor-pointer text-lg font-medium hover:text-tila-primary   flex justify-between items-center list-none">
                 {item.label}
                 <ChevronDown
                   size={18}
                   className="transition-transform group-open:rotate-180"
                 />
               </summary>
-              <div className="ml-3 mt-2 space-y-4 animate-slideDown">
+              <div className="max-h-[300px] overflow-y-auto pr-2 my-3 overscroll-contain animate-slideDown">
                 {item.columns?.map((col) => (
                   <div key={col.title}>
                     <h4 className="font-semibold text-sm mb-2">{col.title}</h4>
-                    <ul className="space-y-1 text-sm">
+                    <div className="h-px w-40 bg-tila-lightText"></div>
+                    <ul className="space-y-1 text-xs">
                       {col.links.map((link) => {
                         const slug = link
                           .toLowerCase()
@@ -297,7 +299,7 @@ export default function Header() {
                             <Link
                               href={`/services/${slug}`}
                               onClick={() => setMobileOpen(false)}
-                              className="block py-1 hover:text-[#2F56C8] transition-colors"
+                              className="block py-1 hover:text-tila-primary   transition-colors"
                             >
                               {link}
                             </Link>
@@ -314,7 +316,7 @@ export default function Header() {
               key={item.label}
               href={item.href || "#"}
               onClick={() => setMobileOpen(false)}
-              className="text-lg font-medium hover:text-[#2F56C8] transition-colors"
+              className="text-lg font-medium hover:text-tila-primary   transition-colors"
             >
               {item.label}
             </Link>
@@ -324,7 +326,7 @@ export default function Header() {
         <Link
           href="/contact"
           onClick={() => setMobileOpen(false)}
-          className="mt-8 px-6 py-3 rounded-full bg-[#2F56C8] text-white font-semibold text-center hover:bg-[#0939B5] transition-all"
+          className="mt-8 px-6  py-3 rounded-full bg-tila-primary  text-tila-surface  font-semibold text-center  transition-all"
         >
           Book Appointment
         </Link>

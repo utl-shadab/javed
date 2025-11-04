@@ -24,10 +24,10 @@
 
 //   if (!visible) return null;
 //   return (
-//     <div className="fixed bottom-6 right-6 bg-white p-4 rounded-xl shadow-lg">
+//     <div className="fixed bottom-6 right-6  bg-tila-surface   p-4 rounded-xl shadow-lg">
 //       <div className="mb-2">Install TILA for quick access</div>
 //       <div className="flex gap-2">
-//         <button onClick={install} className="px-4 py-2 bg-tila-primary text-white rounded">Install</button>
+//         <button onClick={install} className="px-4 py-2 bg-tila-primary  text-tila-surface  rounded">Install</button>
 //         <button onClick={()=>setVisible(false)} className="px-4 py-2 border rounded">Close</button>
 //       </div>
 //     </div>
@@ -66,12 +66,12 @@
 //   if (!visible) return null;
 
 //   return (
-//     <div className="fixed bottom-6 right-6 bg-white p-4 rounded-xl shadow-lg z-50">
+//     <div className="fixed bottom-6 right-6  bg-tila-surface   p-4 rounded-xl shadow-lg z-50">
 //       <div className="mb-2 text-tila-text font-medium">Install TILA for quick access</div>
 //       <div className="flex gap-2">
 //         <button
 //           onClick={install}
-//           className="px-4 py-2 bg-tila-primary text-white rounded hover:scale-[1.03] transition-transform"
+//           className="px-4 py-2 bg-tila-primary  text-tila-surface  rounded hover:scale-[1.03] transition-transform"
 //         >
 //           Install
 //         </button>
@@ -104,23 +104,30 @@ export default function InstallPWA() {
   const [isIOS, setIsIOS] = useState(false);
 
   useEffect(() => {
-    // ANDROID / CHROME INSTALL PROMPT
+    // ✅ If user dismissed in last 24 hours → don't show again
+    const closedAt = localStorage.getItem("pwaClosed");
+    if (closedAt && Date.now() - Number(closedAt) < 86400000) return;
+
+    // ✅ If PWA already installed → never show
+    const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+    const isIOSStandalone = (window.navigator as any).standalone === true;
+    if (isStandalone || isIOSStandalone) return;
+
+    // ✅ Detect iOS Safari browser
+    const ua = navigator.userAgent.toLowerCase();
+    const iOS = /iphone|ipad|ipod/.test(ua);
+
+    // ✅ Android / Chrome installs
     const handler = (e: Event) => {
       e.preventDefault();
       setDeferred(e as BeforeInstallPromptEvent);
       setVisible(true);
     };
+
     window.addEventListener("beforeinstallprompt", handler);
 
-    // ✅ iOS Detection (only Safari, not installed already)
-    const ua = navigator.userAgent.toLowerCase();
-    const iOS = /iphone|ipad|ipod/.test(ua);
-    const standalone =
-      window.matchMedia("(display-mode: standalone)").matches ||
-      // fallback for older iOS
-      (window.navigator as any).standalone === true;
-
-    if (iOS && !standalone) {
+    // ✅ iOS (no prompt)
+    if (iOS && !isIOSStandalone) {
       setIsIOS(true);
       setVisible(true);
     }
@@ -134,12 +141,17 @@ export default function InstallPWA() {
     setVisible(false);
   };
 
-  // ✅ Hide when user clicks close
+  const closePopup = () => {
+    localStorage.setItem("pwaClosed", Date.now().toString());
+    setVisible(false);
+  };
+
+  // ✅ Hide UI completely if not visible
   if (!visible) return null;
 
   return (
     <div className="fixed font-tila inset-0 flex items-center justify-center bg-black/40 z-[999999] px-4">
-      <div className="bg-white rounded-lg shadow-xl w-full max-w-lg p-5 animate-fadeIn">
+      <div className="bg-tila-surface rounded-lg shadow-xl w-full max-w-lg p-5 animate-fadeIn">
         <div className="flex items-start gap-3">
           <Image
             width={56}
@@ -148,13 +160,13 @@ export default function InstallPWA() {
             alt="App icon"
             className="md:w-14 md:h-14 h-10 w-10 rounded-md"
           />
+
           <div>
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900">
               {isIOS ? "Add to Home Screen" : "Install App?"}
             </h2>
             <p className="text-xs md:text-base text-gray-600 leading-snug">
-              TILA Progressive Web App
-              <br />
+              TILA Progressive Web App<br />
               app.tila.com
             </p>
           </div>
@@ -164,7 +176,7 @@ export default function InstallPWA() {
         {isIOS && (
           <div className="mt-5 text-sm md:text-base text-gray-600 leading-snug space-y-3">
             <p>
-              Tap <b>Share</b> <Share2 className="inline" size={18} /> → 
+              Tap <b>Share</b> <Share2 className="inline" size={18} /> →
               <b> Add to Home Screen</b>
             </p>
           </div>
@@ -172,7 +184,7 @@ export default function InstallPWA() {
 
         <div className="flex justify-end mt-6 gap-3">
           <button
-            onClick={() => setVisible(false)}
+            onClick={closePopup}
             className="px-4 py-1.5 text-tila-primary font-medium text-sm hover:bg-gray-100 rounded transition-colors"
           >
             Close
@@ -182,7 +194,7 @@ export default function InstallPWA() {
           {!isIOS && deferred && (
             <button
               onClick={install}
-              className="px-7 py-2 bg-tila-primary text-white font-medium text-sm rounded hover:bg-[#1765c1] transition-colors"
+              className="px-7 py-2 bg-tila-primary text-tila-surface font-medium text-sm rounded hover:bg-[#1765c1] transition-colors"
             >
               Install
             </button>

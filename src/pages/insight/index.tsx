@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 export default function InsightsPage() {
   return (
-    <main className="min-h-screen bg-white text-[#222B38] pt-32 pb-20">
+    <main className="min-h-screen  bg-tila-surface   text-[#222B38] pt-32 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         <Breadcrumb />
 

@@ -20,7 +20,7 @@ const About = () => {
                         />
 
                         {/* Bottom Badge */}
-                        <div className="absolute bottom-6 left-6 bg-white px-4 py-2 rounded-2xl flex items-center gap-2 shadow-md">
+                        <div className="absolute bottom-6 left-3 sm:left-6  bg-tila-surface   px-4 py-2 rounded-2xl flex items-center gap-2 shadow-md">
                             <Image
                                 height={30}
                                 width={30}
@@ -28,10 +28,10 @@ const About = () => {
                                 className="w-7 h-7 rounded-full"
                                 alt="Community"
                             />
-                            <p className="text-sm  text-gray-700">
+                            <p className="sm:text-sm text-xs text-gray-700">
                                 Join our active legal community
                             </p>
-                            <span className="bg-tila-text-tila-primary text-white text-xs px-2 py-1 rounded-xl">
+                            <span className="bg-tila-primary  text-tila-surface  text-xs px-2 sm:py-1 py-0.5 rounded-xl">
                                 +500
                             </span>
                         </div>
@@ -68,16 +68,16 @@ const About = () => {
 
                         {/* Feature Cards */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10">
-                            <div className=" p-6 rounded-2xl  text-center border border-secondary">
-                                <Eye className="w-10 h-10 text-tila-text mx-auto mb-3" />
+                            <div className=" p-6 rounded-2xl   border border-secondary">
+                                <Eye className="w-10 h-10 text-tila-text  mb-3" />
                                 <h3 className="text-xl  text-tila-text">Our Vision</h3>
                                 <p className="text-gray-600 text-base mt-2">
                                     Delivering strategic, result-oriented, and client-centric legal services for individuals and corporations across India.
                                 </p>
                             </div>
 
-                            <div className="p-6 rounded-2xl  text-center border border-secondary">
-                                <MapPin className="w-10 h-10 text-tila-text mx-auto mb-3" />
+                            <div className="p-6 rounded-2xl   border border-secondary">
+                                <MapPin className="w-10 h-10 text-tila-text  mb-3" />
                                 <h3 className="text-xl  text-tila-text">Our Mission</h3>
                                 <p className="text-gray-600 text-base mt-2">
                                     To serve as trusted partners, resolving disputes and empowering clients with preventive legal strategies.
@@ -88,7 +88,7 @@ const About = () => {
                 </div>
 
                 {/* Philosophy Section */}
-                {/* <div className="mt-24 text-center">
+                {/* <div className="mt-24 ">
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Philosophy</h2>
 
                     <ul className="max-w-xl mx-auto text-left mt-10 space-y-4">
@@ -109,7 +109,7 @@ const About = () => {
 
                 {/* Vision & Mission */}
                 {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-20">
-                    <div className="bg-white p-10 rounded-3xl shadow-lg text-center">
+                    <div className=" bg-tila-surface   p-10 rounded-3xl shadow-lg text-center">
                         <h3 className="text-2xl  text-tila-primary mb-3">Our Vision</h3>
                         <p className="text-gray-600 text-lg leading-relaxed">
                             Delivering strategic, result-oriented, and client-centric legal services for individuals
@@ -117,7 +117,7 @@ const About = () => {
                         </p>
                     </div>
 
-                    <div className="bg-white p-10 rounded-3xl shadow-lg text-center">
+                    <div className=" bg-tila-surface   p-10 rounded-3xl shadow-lg text-center">
                         <h3 className="text-2xl  text-tila-primary mb-3">Our Mission</h3>
                         <p className="text-gray-600 text-lg leading-relaxed">
                             To serve as trusted partners, resolving disputes and empowering clients with preventive legal strategies.

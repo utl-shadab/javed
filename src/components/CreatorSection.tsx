@@ -115,7 +115,7 @@ const CreatorSection: React.FC = () => {
             className="w-full h-full object-cover"
           />
           {/* Floating Card */}
-          <div className="absolute -left-10 top-10 bg-white rounded-2xl shadow-md p-3 flex items-center space-x-2">
+          <div className="absolute -left-10 top-10  bg-tila-surface   rounded-2xl shadow-md p-3 flex items-center space-x-2">
             <div className="text-xl">📡</div>
             <div className="h-8 w-6 bg-green-900 rounded"></div>
           </div>
@@ -133,7 +133,7 @@ const CreatorSection: React.FC = () => {
             ref={(el) => {
               if (el) cardsRef.current[index] = el;
             }}
-            className="bg-white/60 backdrop-blur-md rounded-2xl shadow-lg p-6 transition-all duration-500"
+            className=" bg-tila-surface  /60 backdrop-blur-md rounded-2xl shadow-lg p-6 transition-all duration-500"
           >
             <div className="text-2xl mb-2">{card.icon}</div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">

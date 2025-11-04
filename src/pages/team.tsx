@@ -28,7 +28,7 @@ export default function Team(){
           <h1 className="font-heading text-4xl mb-6">Our Team</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {team.map((m, i)=>(
-              <article key={i} className="member p-6 bg-white rounded-lg shadow">
+              <article key={i} className="member p-6  bg-tila-surface   rounded-lg shadow">
                 <h3 className="font-medium">{m.name}</h3>
                 <p className="text-sm text-tila-lightText mt-1">{m.role}</p>
                 <p className="mt-3 text-tila-lightText">{m.bio}</p>

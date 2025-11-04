@@ -33,7 +33,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onFinish }) => {
       {show && (
         <motion.div
           key="preloader"
-          className="fixed inset-0 flex flex-col items-center justify-center bg-white text-center high-z"
+          className="fixed inset-0 flex flex-col items-center justify-center  bg-tila-surface   text-center high-z"
           exit={{ opacity: 0, transition: { duration: 0.6, ease: 'easeOut' } }}
         >
           {/* Animated word section */}
@@ -50,7 +50,7 @@ const Preloader: React.FC<PreloaderProps> = ({ onFinish }) => {
             <span className="opacity-0 text-[#222B38]">
               Shaping the future of finance,{" "}
             </span>
-            <span className="text-[#2F56C8] opacity-100">{words[index]}</span>
+            <span className="text-tila-primary   opacity-100">{words[index]}</span>
           </motion.h1>
 
           {/* Static hidden paragraph (optional, non-animated) */}

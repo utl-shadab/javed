@@ -5,7 +5,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white text-[#222B38] pt-32 pb-20">
+    <main className="min-h-screen  bg-tila-surface   text-[#222B38] pt-32 pb-20">
       <div className="max-w-5xl mx-auto px-6">
         <Breadcrumb />
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
         <div className="mt-12 text-center">
           <a
             href="mailto:contact@theindianlegalassociates.com"
-            className="inline-block px-6 py-3 bg-[#2F56C8] text-white rounded-full text-sm font-medium hover:bg-[#094bbf] transition"
+            className="inline-block px-6 py-3 bg-tila-primary    text-tila-surface  rounded-full text-sm font-medium hover:bg-[#094bbf] transition"
           >
             Send Us a Message
           </a>

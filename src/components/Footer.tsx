@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="relative bg-tila-primary text-white py-16 px-6 md:px-20 overflow-hidden rounded-tr-[40px] md:rounded-[40px] rounded-tl-[40px] mt-10"
+      className="relative bg-tila-primary  text-tila-surface  py-16 px-6 md:px-20 overflow-hidden rounded-tr-[40px] md:rounded-[40px] rounded-tl-[40px] mt-10"
     >
       {/* Subtle background shapes */}
       <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-[#8e96c5] rounded-full blur-3xl"></div>
@@ -26,7 +26,7 @@ export default function Footer() {
             alt="The Indian Legal Associates"
             width={200}
             height={30}
-            className="object-contain"
+            className="object-contain w-60"
           />
 
 
@@ -46,7 +46,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/60 hover:bg-white hover:text-[#0A1A63] transition-all duration-300"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/60 hover: bg-tila-surface   hover:text-[#0A1A63] transition-all duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,27 +67,27 @@ export default function Footer() {
           transition={{ duration: 1, ease: "easeOut" }}
         >
           <li>
-            <Link href="/" className="hover:text-white cursor-pointer transition-all">
+            <Link href="/" className="hover: text-tila-surface  cursor-pointer transition-all">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/about" className="hover:text-white cursor-pointer transition-all">
+            <Link href="/about" className="hover: text-tila-surface  cursor-pointer transition-all">
               About
             </Link>
           </li>
           <li>
-            <Link href="/services" className="hover:text-white cursor-pointer transition-all">
+            <Link href="/services" className="hover: text-tila-surface  cursor-pointer transition-all">
               Solutions
             </Link>
           </li>
           <li>
-            <Link href="/insights" className="hover:text-white cursor-pointer transition-all">
+            <Link href="/insights" className="hover: text-tila-surface  cursor-pointer transition-all">
               Blog
             </Link>
           </li>
           <li>
-            <Link href="/contact" className="hover:text-white cursor-pointer transition-all">
+            <Link href="/contact" className="hover: text-tila-surface  cursor-pointer transition-all">
               Contact Us
             </Link>
           </li>
@@ -99,7 +99,7 @@ export default function Footer() {
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-        className="relative z-10 w-full h-px bg-white/30 mt-16 mb-6 origin-left"
+        className="relative z-10 w-full h-px  bg-tila-surface  /30 mt-16 mb-6 origin-left"
       ></motion.div>
 
       {/* Bottom text */}

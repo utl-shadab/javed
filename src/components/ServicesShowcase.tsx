@@ -44,7 +44,7 @@ const iconMap: Record<string, LucideIconComponent> = {
 const DefaultIcon = LucideIcons.CircleDot;
 
 // const lightBgColors = [
-//   "bg-white",
+//   " bg-tila-surface  ",
 //   "bg-blue-300",
 //   "bg-green-300",
 //   "bg-yellow-300",
@@ -173,7 +173,7 @@ export default function ServicesShowcase() {
               transition={{ type: "spring", stiffness: 300, damping: 25 }}
               className={`w-full lg:min-w-[40rem] lg:max-w-[22rem] lg:flex-shrink-0
                          h-auto md:min-h-[20rem] md:max-h-[18rem]
-                         bg-white  rounded-xl sm:rounded-2xl 
+                          bg-tila-surface    rounded-xl sm:rounded-2xl 
                          p-5 sm:p-6 shadow-sm transition-all duration-300 hover:border-tila-primary
                          flex flex-col justify-between cursor-pointer`}
             >
@@ -201,7 +201,7 @@ export default function ServicesShowcase() {
       <div className="flex justify-center mt-8 md:hidden px-6">
         <Link
           href="/services"
-          className="px-6 py-3 w-full text-center bg-black text-white rounded-full font-medium hover:bg-neutral-800 transition"
+          className="px-6 py-3 w-full text-center bg-tila-primary  text-tila-surface  rounded-full font-medium hover:bg-neutral-800 transition"
         >
           Explore More
         </Link>

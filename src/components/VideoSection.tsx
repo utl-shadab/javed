@@ -73,7 +73,7 @@ const VideoSection: React.FC = () => {
                 >
 
                     <video
-                        src="/video.mp4"
+                        src="/video1.mp4"
                         playsInline
                         autoPlay
                         muted
@@ -82,7 +82,7 @@ const VideoSection: React.FC = () => {
                     />
 
                     <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                        <div className="text-white text-4xl md:text-7xl font-extrabold text-center">
+                        <div className=" text-tila-surface  text-4xl md:text-7xl font-extrabold text-center">
                             <span>Deliberate.</span>
                             <br />
                             <span>Legal. Excellence.</span>
