@@ -24,7 +24,7 @@ export default function Home() {
       duration: 1.3,
       easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
-      syncTouch: true,
+      syncTouch: false,
     });
 
     lenis.on("scroll", ScrollTrigger.update);
