@@ -22,7 +22,7 @@ export default function Footer() {
         {/* Left section */}
         <div className=" max-w-md space-y-4">
           <Image
-            src="/tila-white.png"
+            src="/new-logo-white.png"
             alt="The Indian Legal Associates"
             width={200}
             height={30}

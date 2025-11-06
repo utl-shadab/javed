@@ -112,7 +112,7 @@ export default function Header() {
       >
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src='/tila.png'
+           src='/new-logo.png'
             alt="The Indian Legal Associates"
             width={300}
             height={40}
@@ -222,7 +222,7 @@ export default function Header() {
       <header className="md:hidden fixed top-0 left-1/2 -translate-x-1/2 w-full  bg-tila-surface  /70 backdrop-blur-xl border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between px-5 py-3 z-[99999]">
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src='/tila.png'
+            src='/new-logo.png'
             alt="The Indian Legal Associates"
             width={200}
             height={40}
