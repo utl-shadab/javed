@@ -1,33 +1,47 @@
-"use client";
+import type { Metadata } from "next"
+import { BlogList } from "@/components/blog-list"
 
-import { motion } from "framer-motion";
-import Breadcrumb from "@/components/Breadcrumb";
+export const metadata: Metadata = {
+  title: "Blog | The Indian Legal Associates - Legal Insights & Firm Updates",
+  description:
+    "Read articles, insights, and updates from The Indian Legal Associates — covering litigation strategy, corporate advisory, arbitration, and more.",
+  keywords: [
+    "The Indian Legal Associates",
+    "legal blog",
+    "litigation insights",
+    "corporate law",
+    "arbitration",
+    "legal updates",
+  ],
+  openGraph: {
+    title: "Blog | The Indian Legal Associates",
+    description:
+      "Insights from The Indian Legal Associates on litigation, corporate advisory, arbitration, and legal practice.",
+    url: "#",
+    siteName: "The Indian Legal Associates",
+    images: [
+      {
+        url: "/Meta/blog.png",
+        width: 1200,
+        height: 630,
+        alt: "The Indian Legal Associates Blog",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog | The Indian Legal Associates",
+    description: "Insights and updates from The Indian Legal Associates.",
+    images: ["/Meta/blog.png"],
+  },
+}
 
-export default function InsightsPage() {
+export default function BlogPage() {
   return (
-    <main className="min-h-screen  bg-tila-surface   text-[#222B38] pt-32 pb-20">
-      <div className="max-w-5xl mx-auto px-6">
-        <Breadcrumb />
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-[#0A1A63] mb-6"
-        >
-          Insights & Articles
-        </motion.h1>
-
-        <p className="text-[#60656F] text-lg leading-relaxed mb-8">
-          Stay updated with legal insights, news, and opinions from our
-          experienced team. Our publications cover the latest developments in
-          litigation, corporate law, and industry trends.
-        </p>
-
-        <div className="border-t border-neutral-200 pt-8 text-[#60656F]">
-          <p>✨ Articles coming soon...</p>
-        </div>
-      </div>
+    <main className="relative bg-[#0a0a0a] text-white overflow-hidden">
+      <BlogList />
     </main>
-  );
+  )
 }

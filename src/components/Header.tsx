@@ -56,7 +56,7 @@ const NAV = [
       },
     ],
   },
-  { label: "Insights", href: "/insights" },
+  { label: "Insights", href: "/insight" },
   { label: "Contact", href: "/contact" },
 ];
 

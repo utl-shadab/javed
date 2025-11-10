@@ -23,10 +23,13 @@ export default function ContactPage() {
     reset,
   } = useForm();
 
-  const serviceOptions = SERVICES.map((item) => ({
+  const serviceOptions = [
+  ...SERVICES.map((item) => ({
     value: item.title,
     label: item.title,
-  }));
+  })),
+  { value: "Other", label: "Other" }, 
+];
 
   const onSubmit = (data: any) => {
     if (!data.phone) {
