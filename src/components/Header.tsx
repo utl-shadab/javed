@@ -13,9 +13,9 @@ const NAV = [
     type: "dropdown",
     items: [
       { label: "Our Firm", href: "/about" },
-      { label: "Philosophy & Approach", href: "/about/philosophy" },
-      { label: "Network", href: "/about/network" },
-      { label: "Team", href: "/team" },
+      { label: "Philosophy & Approach", href: "/about/#approach" },
+      // { label: "Network", href: "/about/network" },
+      { label: "Team", href: "/about/#team" },
     ],
   },
   {

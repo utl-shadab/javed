@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "react-phone-input-2/lib/style.css";
 /* CSS variables */
 @font-face {
   font-family: 'Sass';

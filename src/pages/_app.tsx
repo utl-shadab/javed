@@ -6,13 +6,13 @@ import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";    
 
 const ScrollProvider = dynamic(() => import("@/components/ScrollProvider"), {
   ssr: false,
 });
 
 export default function App({ Component, pageProps, router }: AppProps) {
-
   // ✅ REGISTER SERVICE WORKER HERE
   useEffect(() => {
     if ("serviceWorker" in navigator) {
@@ -46,7 +46,24 @@ export default function App({ Component, pageProps, router }: AppProps) {
             <Component {...pageProps} key={router.pathname} />
           </main>
 
-          {!hideLayout && <div className="md:p-6"><Footer /></div>}
+          {!hideLayout && (
+            <div className="md:p-6">
+              <Footer />
+            </div>
+          )}
+
+          {/* ✅ GLOBAL TOAST CONTAINER */}
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              success: {
+                style: { background: "#0A1A63", color: "white" },
+              },
+              error: {
+                style: { background: "#ff3333", color: "white" },
+              },
+            }}
+          />
         </AnimatePresence>
       </ScrollProvider>
     </>
