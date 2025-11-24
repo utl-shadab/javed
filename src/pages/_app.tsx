@@ -34,6 +34,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
+        <meta name="google-site-verification" content="bxyhBZJowkPzzD8Jr40UQyEywkCubzx7SuSxNq65-6g" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <meta charSet="utf-8" />
       </Head>
