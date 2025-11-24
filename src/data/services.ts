@@ -147,7 +147,7 @@ export const SERVICES: Service[] = [
       description: "Expert litigation representation in civil, criminal, constitutional, and tribunal matters across India. Strategic advocacy for optimal results.",
       keywords: ["litigation support", "civil litigation", "criminal defence", "constitutional law", "tribunal matters", "Indian courts"],
       image: "/images/services/litigation-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/litigation-support"
+      canonical: "https://www.theindialegalassociates.in/services/litigation-support"
     },
     stats: [
       { icon: "Gavel", value: "500+", label: "Cases Won" },
@@ -259,7 +259,7 @@ export const SERVICES: Service[] = [
       description: "Strategic corporate advisory services for compliance, contracts, mergers, acquisitions, and business transactions in India.",
       keywords: ["corporate advisory", "commercial law", "mergers acquisitions", "contract negotiation", "regulatory compliance", "joint ventures"],
       image: "/images/services/corporate-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/corporate-commercial-advisory"
+      canonical: "https://www.theindialegalassociates.in/services/corporate-commercial-advisory"
     },
     stats: [
       { icon: "Briefcase", value: "100+", label: "M&A Deals" },
@@ -371,7 +371,7 @@ export const SERVICES: Service[] = [
       description: "Representation for consumer disputes and motor accident claims, ensuring timely compensation and fair resolutions.",
       keywords: ["consumer protection", "motor accident claims", "consumer disputes", "accident compensation", "insurance claims"],
       image: "/images/services/consumer-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/consumer-motor-accident-claims"
+      canonical: "https://www.theindialegalassociates.in/services/consumer-motor-accident-claims"
     },
     stats: [
       { icon: "ShieldCheck", value: "95%", label: "Success Rate" },
@@ -483,7 +483,7 @@ export const SERVICES: Service[] = [
       description: "Compassionate guidance in divorce, custody, maintenance, and inheritance disputes. Amicable resolutions through mediation and litigation.",
       keywords: ["family law", "matrimonial law", "divorce lawyer", "child custody", "inheritance disputes", "domestic violence"],
       image: "/images/services/family-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/family-matrimonial-law"
+      canonical: "https://www.theindialegalassociates.in/services/family-matrimonial-law"
     },
     stats: [
       { icon: "Users", value: "80%", label: "Amicable Resolutions" },
@@ -595,7 +595,7 @@ export const SERVICES: Service[] = [
       description: "Full-service property law including transactions, disputes, due diligence, and compliance for residential and commercial real estate.",
       keywords: ["property law", "real estate", "land acquisition", "title verification", "lease agreements", "RERA compliance"],
       image: "/images/services/property-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/property-real-estate"
+      canonical: "https://www.theindialegalassociates.in/services/property-real-estate"
     },
     stats: [
       { icon: "MapPin", value: "₹200Cr+", label: "Deals Facilitated" },
@@ -707,7 +707,7 @@ export const SERVICES: Service[] = [
       description: "Efficient alternative dispute resolution through arbitration, mediation, and conciliation for faster, cost-effective settlements.",
       keywords: ["arbitration", "ADR", "mediation", "conciliation", "dispute resolution", "out-of-court settlement"],
       image: "/images/services/arbitration-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/arbitration-and-adr"
+      canonical: "https://www.theindialegalassociates.in/services/arbitration-and-adr"
     },
     stats: [
       { icon: "Balance", value: "90%", label: "Settlement Rate" },
@@ -819,7 +819,7 @@ export const SERVICES: Service[] = [
       description: "Advisory and representation in employment contracts, workplace policies, industrial disputes, and labour compliance for employers and employees.",
       keywords: ["employment law", "labour law", "industrial disputes", "POSH compliance", "retrenchment", "wage claims"],
       image: "/images/services/employment-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/employment-labour-law"
+      canonical: "https://www.theindialegalassociates.in/services/employment-labour-law"
     },
     stats: [
       { icon: "Users", value: "500+", label: "Policies Drafted" },
@@ -931,7 +931,7 @@ export const SERVICES: Service[] = [
       description: "Expert drafting of contracts, agreements, NDAs, MoUs, and legal opinions, ensuring enforceability and alignment with client objectives.",
       keywords: ["legal drafting", "contract drafting", "NDA", "MoU", "legal opinions", "agreements"],
       image: "/images/services/drafting-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/legal-drafting-documentation"
+      canonical: "https://www.theindialegalassociates.in/services/legal-drafting-documentation"
     },
     stats: [
       { icon: "FileText", value: "1,000+", label: "Documents Drafted" },
@@ -1043,7 +1043,7 @@ export const SERVICES: Service[] = [
       description: "Legal advisory for banking, lending, NPA recovery, SARFAESI, and debt restructuring, ensuring regulatory compliance and financial security.",
       keywords: ["banking law", "finance advisory", "NPA recovery", "SARFAESI", "loan documentation", "debt restructuring"],
       image: "/images/services/banking-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/banking-and-finance"
+      canonical: "https://www.theindialegalassociates.in/services/banking-and-finance"
     },
     stats: [
       { icon: "DollarSign", value: "₹300Cr+", label: "NPAs Recovered" },
@@ -1155,7 +1155,7 @@ export const SERVICES: Service[] = [
       description: "Compliance with Companies Act, corporate governance, ROC filings, and board advisory for seamless corporate operations.",
       keywords: ["company law", "corporate governance", "ROC filings", "shareholder disputes", "board advisory", "Companies Act"],
       image: "/images/services/company-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/company-law-and-governance"
+      canonical: "https://www.theindialegalassociates.in/services/company-law-and-governance"
     },
     stats: [
       { icon: "Building", value: "50+", label: "Startups Incorporated" },
@@ -1267,7 +1267,7 @@ export const SERVICES: Service[] = [
       description: "Expert representation in IBC proceedings, CIRP, resolution plans, and liquidation for creditors and debtors.",
       keywords: ["insolvency", "bankruptcy", "IBC", "CIRP", "NCLT", "resolution professionals"],
       image: "/images/services/insolvency-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/insolvency-and-bankruptcy"
+      canonical: "https://www.theindialegalassociates.in/services/insolvency-and-bankruptcy"
     },
     stats: [
       { icon: "AlertTriangle", value: "₹1,200Cr+", label: "Resolution Plans" },
@@ -1379,7 +1379,7 @@ export const SERVICES: Service[] = [
       description: "Protection of trademarks, patents, copyrights, and IP enforcement with registration, licensing, and portfolio management.",
       keywords: ["intellectual property", "IP law", "trademarks", "patents", "copyrights", "IP licensing"],
       image: "/images/services/ip-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/intellectual-property-law"
+      canonical: "https://www.theindialegalassociates.in/services/intellectual-property-law"
     },
     stats: [
       { icon: "Copyright", value: "50+", label: "Patents Secured" },
@@ -1491,7 +1491,7 @@ export const SERVICES: Service[] = [
       description: "Advisory on IT contracts, data privacy, cybersecurity, and digital compliance under IT Act and DPDP.",
       keywords: ["IT law", "data protection", "cybersecurity", "data privacy", "IT contracts", "DPDP Act"],
       image: "/images/services/it-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/information-technology-data-protection"
+      canonical: "https://www.theindialegalassociates.in/services/information-technology-data-protection"
     },
     stats: [
       { icon: "Globe", value: "100+", label: "Apps Audited" },
@@ -1603,7 +1603,7 @@ export const SERVICES: Service[] = [
       description: "Tax planning, GST advisory, income tax appeals, and accounting consultancy to optimize financial efficiency and compliance.",
       keywords: ["taxation", "accounting", "GST advisory", "income tax", "transfer pricing", "tax appeals"],
       image: "/images/services/tax-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/taxation-and-accounting"
+      canonical: "https://www.theindialegalassociates.in/services/taxation-and-accounting"
     },
     stats: [
       { icon: "Calculator", value: "₹50Cr+", label: "Tax Savings" },
@@ -1715,7 +1715,7 @@ export const SERVICES: Service[] = [
       description: "Legal advisory for energy projects, environmental clearances, renewable energy, and NGT representation with sustainability focus.",
       keywords: ["energy law", "environment law", "renewable energy", "EIA", "NGT", "pollution control"],
       image: "/images/services/energy-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/energy-and-environment-law"
+      canonical: "https://www.theindialegalassociates.in/services/energy-and-environment-law"
     },
     stats: [
       { icon: "Leaf", value: "1GW+", label: "Projects Cleared" },
@@ -1827,7 +1827,7 @@ export const SERVICES: Service[] = [
       description: "Advisory for EPC contracts, PPP agreements, project disputes, and regulatory compliance in infrastructure and construction.",
       keywords: ["infrastructure law", "construction law", "EPC contracts", "PPP", "project disputes", "FIDIC"],
       image: "/images/services/infra-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/infrastructure-and-construction-law"
+      canonical: "https://www.theindialegalassociates.in/services/infrastructure-and-construction-law"
     },
     stats: [
       { icon: "HardDrive", value: "₹500Cr+", label: "Extensions Awarded" },
@@ -1939,7 +1939,7 @@ export const SERVICES: Service[] = [
       description: "Legal services for production houses, artists, broadcasters, sports sponsorship, and digital content regulation in entertainment.",
       keywords: ["media law", "sports law", "entertainment law", "IP licensing", "talent contracts", "broadcast rights"],
       image: "/images/services/media-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/media-sports-entertainment-law"
+      canonical: "https://www.theindialegalassociates.in/services/media-sports-entertainment-law"
     },
     stats: [
       { icon: "Tv", value: "₹50Cr+", label: "Rights Deals" },
@@ -2051,7 +2051,7 @@ export const SERVICES: Service[] = [
       description: "Maritime law services for ship arrest, marine insurance, charter disputes, and compliance with international conventions.",
       keywords: ["shipping law", "admiralty law", "ship arrest", "marine insurance", "charter party", "cargo claims"],
       image: "/images/services/shipping-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/shipping-and-admiralty-law"
+      canonical: "https://www.theindialegalassociates.in/services/shipping-and-admiralty-law"
     },
     stats: [
       { icon: "Anchor", value: "₹100Cr+", label: "Claims Recovered" },
@@ -2163,7 +2163,7 @@ export const SERVICES: Service[] = [
       description: "Legal framework for FDI, joint ventures, investment structures, and cross-border transactions with regulatory approval.",
       keywords: ["FDI", "investment law", "joint ventures", "FEMA", "DPIIT approvals", "cross-border investments"],
       image: "/images/services/investment-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/investment-and-collaborations"
+      canonical: "https://www.theindialegalassociates.in/services/investment-and-collaborations"
     },
     stats: [
       { icon: "TrendingUp", value: "₹5,000Cr+", label: "FDI Facilitated" },
@@ -2275,7 +2275,7 @@ export const SERVICES: Service[] = [
       description: "Proactive HR compliance, POSH audits, and labour law advisory to minimize workplace disputes and ensure regulatory adherence.",
       keywords: ["labour compliance", "employment law", "POSH", "HR policies", "labour audits", "industrial governance"],
       image: "/images/services/labour-hero.jpg",
-      canonical: "https://theindianlegalassociates.com/services/employment-and-labour-compliance"
+      canonical: "https://www.theindialegalassociates.in/services/employment-and-labour-compliance"
     },
     stats: [
       { icon: "Shield", value: "200+", label: "Audits Completed" },

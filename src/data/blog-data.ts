@@ -1,5 +1,28 @@
 import type { Metadata } from "next"
 
+export interface SEO {
+  title: string
+  description: string
+  keywords: string[]
+  canonical: string
+  openGraph: {
+    title: string
+    description: string
+    images: string[]
+    url: string
+    siteName: string
+    locale: string
+    type: string
+  }
+  twitter: {
+    card: string
+    title: string
+    description: string
+    images: string[]
+    creator: string
+  }
+}
+
 export interface BlogPost {
   id: number
   slug: string
@@ -16,6 +39,7 @@ export interface BlogPost {
     level?: 2 | 3 | 4
   }[]
   metadata: Metadata
+  seo: SEO
 }
 
 export const blogPosts: BlogPost[] = [
@@ -62,6 +86,35 @@ export const blogPosts: BlogPost[] = [
       description:
         "Discover The Indian Legal Associates — a reputed law firm in India dedicated to professionalism, commitment, and integrity.",
     },
+    seo: {
+      title: "About The Indian Legal Associates: Trusted Law Firm in India",
+      description: "Learn about The Indian Legal Associates (TILA), a multi-disciplinary boutique law firm in New Delhi and Noida, offering strategic legal services with a focus on professionalism, commitment, and integrity.",
+      keywords: [
+        "Indian Legal Associates",
+        "TILA law firm",
+        "law firm New Delhi",
+        "boutique law firm India",
+        "legal services India",
+        "professional legal practice"
+      ],
+      canonical: "https://yourdomain.com/blog/about-the-indian-legal-associates",
+      openGraph: {
+        title: "About The Indian Legal Associates: Trusted Partner in Justice",
+        description: "Discover The Indian Legal Associates — a reputed law firm in India dedicated to professionalism, commitment, and integrity.",
+        images: ["/blog/tila-office.jpg"],
+        url: "https://yourdomain.com/blog/about-the-indian-legal-associates",
+        siteName: "The Indian Legal Associates",
+        locale: "en_IN",
+        type: "article"
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "About The Indian Legal Associates: Trusted Partner in Justice",
+        description: "Discover The Indian Legal Associates — a reputed law firm in India dedicated to professionalism, commitment, and integrity.",
+        images: ["/blog/tila-office.jpg"],
+        creator: "@indianlegalassociates"
+      }
+    }
   },
   {
     id: 2,
@@ -116,6 +169,36 @@ export const blogPosts: BlogPost[] = [
       description:
         "Explore The Indian Legal Associates’ full suite of legal services, from litigation and corporate law to arbitration and intellectual property.",
     },
+    seo: {
+      title: "Comprehensive Legal Services by The Indian Legal Associates | TILA",
+      description: "Explore TILA's full range of legal services including litigation, corporate advisory, family law, arbitration, and specialized sectors like IP and taxation for efficient, result-oriented solutions in India.",
+      keywords: [
+        "legal services India",
+        "TILA legal services",
+        "corporate law India",
+        "litigation support",
+        "family law New Delhi",
+        "arbitration ADR",
+        "intellectual property law"
+      ],
+      canonical: "https://yourdomain.com/blog/comprehensive-legal-services",
+      openGraph: {
+        title: "Our Comprehensive Legal Services | The Indian Legal Associates",
+        description: "Explore The Indian Legal Associates’ full suite of legal services, from litigation and corporate law to arbitration and intellectual property.",
+        images: ["/blog/legal-services.jpg"],
+        url: "https://yourdomain.com/blog/comprehensive-legal-services",
+        siteName: "The Indian Legal Associates",
+        locale: "en_IN",
+        type: "article"
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Our Comprehensive Legal Services | The Indian Legal Associates",
+        description: "Explore The Indian Legal Associates’ full suite of legal services, from litigation and corporate law to arbitration and intellectual property.",
+        images: ["/blog/legal-services.jpg"],
+        creator: "@indianlegalassociates"
+      }
+    }
   },
   {
     id: 3,
@@ -166,6 +249,35 @@ export const blogPosts: BlogPost[] = [
       description:
         "Learn how The Indian Legal Associates combines professionalism, innovation, and client focus to deliver strategic legal outcomes.",
     },
+    seo: {
+      title: "Vision and Approach of The Indian Legal Associates | Firm Philosophy",
+      description: "Discover the vision and four-dimensional approach of TILA: commitment, competence, efficiency, and innovation in delivering excellence in legal services across India.",
+      keywords: [
+        "TILA vision",
+        "law firm approach",
+        "legal philosophy India",
+        "client-focused legal services",
+        "professionalism in law",
+        "innovation in legal practice"
+      ],
+      canonical: "https://yourdomain.com/blog/our-vision-and-approach",
+      openGraph: {
+        title: "The Vision and Approach Behind The Indian Legal Associates",
+        description: "Learn how The Indian Legal Associates combines professionalism, innovation, and client focus to deliver strategic legal outcomes.",
+        images: ["/blog/vision-approach.jpg"],
+        url: "https://yourdomain.com/blog/our-vision-and-approach",
+        siteName: "The Indian Legal Associates",
+        locale: "en_IN",
+        type: "article"
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "The Vision and Approach Behind The Indian Legal Associates",
+        description: "Learn how The Indian Legal Associates combines professionalism, innovation, and client focus to deliver strategic legal outcomes.",
+        images: ["/blog/vision-approach.jpg"],
+        creator: "@indianlegalassociates"
+      }
+    }
   },
   {
     id: 4,
@@ -217,5 +329,34 @@ export const blogPosts: BlogPost[] = [
       description:
         "Discover the journey and contributions of Advocate Naushad Ali — founder of The Indian Legal Associates, with over 35 years of legal excellence.",
     },
+    seo: {
+      title: "Advocate Naushad Ali: Founder of The Indian Legal Associates | Profile",
+      description: "Meet Advocate Naushad Ali, founder of TILA with 35+ years in civil, criminal, constitutional, and family law. Honored for integrity and pro bono work in Indian courts.",
+      keywords: [
+        "Advocate Naushad Ali",
+        "TILA founder",
+        "Indian lawyer profile",
+        "legal expert New Delhi",
+        "criminal law specialist",
+        "constitutional law India"
+      ],
+      canonical: "https://yourdomain.com/blog/advocate-naushad-ali-profile",
+      openGraph: {
+        title: "Meet Our Founder: Advocate Naushad Ali | The Indian Legal Associates",
+        description: "Discover the journey and contributions of Advocate Naushad Ali — founder of The Indian Legal Associates, with over 35 years of legal excellence.",
+        images: ["/blog/naushad-ali.jpg"],
+        url: "https://yourdomain.com/blog/advocate-naushad-ali-profile",
+        siteName: "The Indian Legal Associates",
+        locale: "en_IN",
+        type: "profile"
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: "Meet Our Founder: Advocate Naushad Ali | The Indian Legal Associates",
+        description: "Discover the journey and contributions of Advocate Naushad Ali — founder of The Indian Legal Associates, with over 35 years of legal excellence.",
+        images: ["/blog/naushad-ali.jpg"],
+        creator: "@indianlegalassociates"
+      }
+    }
   },
 ]

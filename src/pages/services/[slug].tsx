@@ -29,8 +29,16 @@ import {
   Shield
 } from "lucide-react";
 import Image from "next/image";
-
-type Props = { service: Service };
+type Props = {
+  service: Service;
+  seo?: {
+    title: string;
+    description: string;
+    keywords: string[];
+    image: string;
+    canonical: string;
+  };
+};
 type RevealTextProps = {
   children: React.ReactNode;
   delay?: number;
@@ -114,12 +122,44 @@ const RelatedServiceCard = ({ relatedSlug }: { relatedSlug: string }) => {
   );
 };
 
-export default function ServiceDetailPage({ service }: Props) {
+export default function ServiceDetailPage({ service, seo }: Props) {
   return (
     <>
       <Head>
-        <title>{service.title} | The Indian Legal Associates</title>
-        <meta name="description" content={service.excerpt} />
+        <title>{seo?.title || service.title}</title>
+        <meta name="description" content={seo?.description} />
+        {seo?.keywords && (
+          <meta name="keywords" content={seo.keywords.join(", ")} />
+        )}
+        <link rel="canonical" href={seo?.canonical} />
+        <meta property="og:title" content={seo?.title} />
+        <meta property="og:description" content={seo?.description} />
+        <meta property="og:image" content={seo?.image} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={seo?.canonical} />
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index,follow" />
+        {seo && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "LegalService",
+                "name": service.title,
+                "description": seo.description,
+                "url": seo.canonical,
+                "image": seo.image,
+                "provider": {
+                  "@type": "Organization",
+                  "name": "The Indian Legal Associates",
+                  "url": "https://www.theindialegalassociates.in"
+                },
+                "areaServed": "India"
+              }),
+            }}
+          />
+        )}
       </Head>
       <main className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 overflow-hidden">
         {/* Hero Section */}
@@ -262,7 +302,7 @@ export default function ServiceDetailPage({ service }: Props) {
                     className="prose prose-lg sm:prose-xl text-slate-600 leading-relaxed mb-6 sm:mb-8 text-sm sm:text-base"
                     dangerouslySetInnerHTML={{ __html: section.content }}
                   />
-                 
+
                 </motion.div>
                 {/* Image */}
                 <motion.div
@@ -326,7 +366,7 @@ export default function ServiceDetailPage({ service }: Props) {
                   transition={{ delay: idx * 0.1, duration: 0.5 }}
                 >
                   <GlassCard className="p-6 sm:p-10 rounded-2xl sm:rounded-3xl relative group">
-                    <div className="absolute top-4 right-4 text-blue-200/20 text-6xl sm:text-8xl font-serif"><Quote/></div>
+                    <div className="absolute top-4 right-4 text-blue-200/20 text-6xl sm:text-8xl font-serif"><Quote /></div>
                     <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6 relative z-10">
                       <div className="relative flex-shrink-0">
                         <Image
@@ -344,7 +384,7 @@ export default function ServiceDetailPage({ service }: Props) {
                       </div>
                     </div>
                     <p className="text-slate-700 text-base sm:text-lg leading-relaxed mb-4 sm:mb-6 italic">
-                      <Quote/>{testimonial.quote}<Quote/>
+                      <Quote />{testimonial.quote}<Quote />
                     </p>
                     <div className="flex gap-0.5 sm:gap-1">
                       {[...Array(5)].map((_, i) => (
@@ -445,6 +485,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const slug = ctx.params?.slug as string;
   const service = SERVICES.find((s) => s.slug === slug);
+
   if (!service) return { notFound: true };
-  return { props: { service } };
+
+  const { seo, ...cleanService } = service;
+
+  return {
+    props: {
+      service: cleanService,
+      seo,
+    },
+  };
 };

@@ -30,7 +30,7 @@ const NAV = [
           "Family & Matrimonial Law",
           "Property & Real Estate",
           "Arbitration & ADR",
-          "Employment & Labour Law",
+          "employment & labour compliance",
         ],
       },
       {
